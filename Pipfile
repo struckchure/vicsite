@@ -8,6 +8,8 @@ django = "*"
 djangorestframework = "*"
 coreapi = "*"
 pyyaml = "*"
+django-allauth = "*"
+dj-rest-auth = "*"
 
 [dev-packages]
 
