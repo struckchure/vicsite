@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
 ]
 
+AUTH_USER_MODEL = 'users.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
