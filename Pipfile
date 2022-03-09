@@ -10,6 +10,7 @@ coreapi = "*"
 pyyaml = "*"
 django-allauth = "*"
 dj-rest-auth = "*"
+gunicorn = "*"
 
 [dev-packages]
 
