@@ -38,6 +38,9 @@ INSTALLED_APPS = [
 
     # Local Apps
     'users.apps.UsersConfig',
+    'transactions.apps.TransactionsConfig',
+    'investments.apps.InvestmentsConfig',
+    'useraccounts.apps.UseraccountsConfig',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
