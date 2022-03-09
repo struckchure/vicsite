@@ -35,7 +35,7 @@ class Withdraw(models.Model):
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
     coin = models.ForeignKey(CoinAddress, on_delete=models.CASCADE)
     wallet_address = models.CharField(max_length=500)
-    # status = models.ForeignKey(WithdrawStatus, on_delete=models.CASCADE, choices=STATUS, default=STATUS[0][1])
+    status = models.ForeignKey(WithdrawStatus, on_delete=models.CASCADE, choices=STATUS, null=True)
 
 
 class Deposit(models.Model):
@@ -45,6 +45,6 @@ class Deposit(models.Model):
     amount = models.CharField(max_length=50)
     proof = models.ImageField()
     transaction_date = models.DateTimeField(auto_now_add=True)
-    # status = models.ForeignKey(DepositStatus, on_delete=models.CASCADE, choices=STATUS, default=STATUS[0][1])
+    status = models.ForeignKey(DepositStatus, on_delete=models.CASCADE, choices=STATUS, null=True)
 
 

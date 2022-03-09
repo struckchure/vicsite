@@ -26,4 +26,4 @@ class WithdrawStatus(models.Model):
     withdraw_status = models.CharField(max_length=20, choices=STATUS)
 
 class InvestmentStatus(models.Model):
-    invest_status = models.CharField(max_length=20, choices=INVEST_STATUS, default=INVEST_STATUS[0][0])
+    invest_status = models.CharField(max_length=20, choices=INVEST_STATUS)

@@ -12,4 +12,4 @@ class Package(models.Model):
 class Investment(models.Model):
     sn = models.PositiveIntegerField()
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
-    # status = models.ForeignKey(InvestmentStatus, on_delete=models.CASCADE)
+    status = models.ForeignKey(InvestmentStatus, on_delete=models.CASCADE, null=True)
