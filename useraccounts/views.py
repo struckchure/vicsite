@@ -17,6 +17,13 @@ class WithdrawView(generics.CreateAPIView):
     queryset = Withdraw.objects.all()
     serializer_class = WithdrawSerializer
 
+class WithdrawHistory(generics.ListAPIView):
+    ''' 
+    This class handles the response for viewing withdraw history
+    '''
+    queryset = Withdraw.objects.all()
+    serializer_class = WithdrawSerializer
+
 
 class DepositView(generics.CreateAPIView):
     '''
