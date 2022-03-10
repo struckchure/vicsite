@@ -5,6 +5,7 @@ from users.models import Balance
 
 
 class Package(models.Model):
+    name = models.CharField(max_length=30, null=True)
     maximum_stake = models.DecimalField(max_digits=6, decimal_places=2)
     minimum_stake = models.DecimalField(max_digits=3, decimal_places=2)
     roi = models.PositiveIntegerField()
