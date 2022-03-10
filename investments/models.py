@@ -1,6 +1,6 @@
 from django.db import models
 from transactions.models import InvestmentStatus
-from useraccounts.models import Balance
+from users.models import Balance
 
 
 class Package(models.Model):

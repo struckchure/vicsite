@@ -1,5 +1,5 @@
 from rest_framework import generics
-from users.models import Deposit, Withdraw, Balance, UserCryptoDetails
+from users.models import Balance, UserCryptoDetails
 from users.serializers import UserBalanceSerializer, UserCryptoDetails
 
 # Create your views here.

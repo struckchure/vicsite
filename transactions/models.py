@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.db import models
 from users.models import Coin, CoinAddress, Balance
-from investments.models import Investment
 
 STATUS = (
     ('P', 'Pending'),
@@ -20,8 +19,20 @@ class TransactionHistory(models.Model):
     sn = models.PositiveIntegerField()
     # deposit_
 
+class DepositStatus(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    deposit_status = models.CharField(max_length=20, choices=STATUS)
+
+class WithdrawStatus(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    withdraw_status = models.CharField(max_length=20, choices=STATUS)
+
+class InvestmentStatus(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    invest_status = models.CharField(max_length=20, choices=INVEST_STATUS)
+
 class Withdraw(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
     coin = models.ForeignKey(CoinAddress, on_delete=models.CASCADE)
     wallet_address = models.CharField(max_length=500)
@@ -37,14 +48,3 @@ class Deposit(models.Model):
     transaction_date = models.DateTimeField(auto_now_add=True)
     status = models.ForeignKey(DepositStatus, on_delete=models.CASCADE, choices=STATUS, null=True)
 
-class DepositStatus(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    deposit_status = models.CharField(max_length=20, choices=STATUS)
-
-class WithdrawStatus(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    withdraw_status = models.CharField(max_length=20, choices=STATUS)
-
-class InvestmentStatus(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    invest_status = models.CharField(max_length=20, choices=INVEST_STATUS)
