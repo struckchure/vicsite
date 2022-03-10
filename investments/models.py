@@ -1,5 +1,6 @@
 from django.db import models
 from transactions.models import InvestmentStatus
+from useraccounts.models import Balance
 
 
 class Package(models.Model):
@@ -11,5 +12,7 @@ class Package(models.Model):
 
 class Investment(models.Model):
     sn = models.PositiveIntegerField()
+    balance = models.ForeignKey(Balance, on_delete=models.CASCADE, null=True)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=3, decimal_places=2, null=True)
     status = models.ForeignKey(InvestmentStatus, on_delete=models.CASCADE, null=True)
