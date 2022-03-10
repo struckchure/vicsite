@@ -1,6 +1,6 @@
 from rest_framework import generics
-from investments.models import Investment
-from investments.serializers import InvestmentFormSerializer
+from investments.models import Investment, Package
+from investments.serializers import InvestmentFormSerializer, PackageFormSerializer
 
 class InvestView(generics.CreateAPIView):
     '''
@@ -8,3 +8,10 @@ class InvestView(generics.CreateAPIView):
     '''
     queryset = Investment.objects.all()
     serializer_class = InvestmentFormSerializer
+
+class PackageView(generics.CreateAPIView):
+    '''
+    This class displays the investment form
+    '''
+    queryset = Package.objects.all()
+    serializer_class = PackageFormSerializer

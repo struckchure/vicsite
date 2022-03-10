@@ -23,13 +23,23 @@ class DepositStatus(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     deposit_status = models.CharField(max_length=20, choices=STATUS)
 
+    def __str__(self):
+        return self.user
+    
+
 class WithdrawStatus(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     withdraw_status = models.CharField(max_length=20, choices=STATUS)
 
+    def __str__(self):
+         return self.user
+
 class InvestmentStatus(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     invest_status = models.CharField(max_length=20, choices=INVEST_STATUS)
+
+    def __str__(self):
+        return self.user
 
 class Withdraw(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
@@ -38,6 +48,9 @@ class Withdraw(models.Model):
     wallet_address = models.CharField(max_length=500)
     amount = models.CharField(max_length=100, null=True)
     status = models.ForeignKey(WithdrawStatus, on_delete=models.CASCADE, choices=STATUS, null=True)
+
+    def __str__(self):
+        return self.user
 
 class Deposit(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -48,3 +61,5 @@ class Deposit(models.Model):
     transaction_date = models.DateTimeField(auto_now_add=True)
     status = models.ForeignKey(DepositStatus, on_delete=models.CASCADE, choices=STATUS, null=True)
 
+    def __str__(self):
+        return self.user

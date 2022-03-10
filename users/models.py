@@ -51,7 +51,7 @@ class CoinAddress(models.Model):
 # Sets the user's balance
 class Balance(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    balance = models.PositiveIntegerField()
+    balance = models.DecimalField(max_digits=10, decimal_places=2)
 
 class UserCryptoDetails(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

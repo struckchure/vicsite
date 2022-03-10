@@ -21,5 +21,5 @@ class UserBalanceSerializer(serializers.ModelSerializer):
 
 class UserCryptoDetails(serializers.ModelSerializer):
     class Meta:
-        model = UserBalanceSerializer
+        model = UserCryptoDetails
         fields = ('coin', 'wallet_address',)
