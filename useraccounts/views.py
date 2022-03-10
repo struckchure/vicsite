@@ -1,6 +1,6 @@
 from rest_framework import generics
-from useraccounts.models import Deposit, Withdraw, Balance
-from useraccounts.serializers import DepositHistorySerializer, WithdrawSerializer, DepositFormSerializer, UserBalanceSerializer
+from useraccounts.models import Deposit, Withdraw, Balance, UserCryptoDetails
+from useraccounts.serializers import DepositHistorySerializer, WithdrawSerializer, DepositFormSerializer, UserBalanceSerializer, UserCryptoDetails
 
 
 class DepositHistoryView(generics.ListAPIView):
@@ -31,3 +31,10 @@ class UserBalanceView(generics.RetrieveAPIView):
     '''
     queryset = Balance.objects.all()
     serializer_class = UserBalanceSerializer
+
+class UserAssetView(generics.ListCreateAPIView):
+    '''
+    Returns User Asset Details. Edit List
+    '''
+    queryset = UserCryptoDetails
+    serializer_class = UserCryptoDetails

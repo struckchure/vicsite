@@ -48,4 +48,9 @@ class Deposit(models.Model):
     transaction_date = models.DateTimeField(auto_now_add=True)
     status = models.ForeignKey(DepositStatus, on_delete=models.CASCADE, choices=STATUS, null=True)
 
+class UserCryptoDetails(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
+    wallet_address = models.CharField(max_length=500)
+    balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
 

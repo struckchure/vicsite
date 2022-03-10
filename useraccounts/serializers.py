@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from useraccounts.models import Deposit, Withdraw, Balance
+from useraccounts.models import Deposit, Withdraw, Balance, UserCryptoDetails
 
 class DepositHistorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,3 +20,8 @@ class UserBalanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Balance
         fields = ('balance',)
+
+class UserCryptoDetails(serializers.ModelSerializer):
+    class Meta:
+        model = UserBalanceSerializer
+        fields = ('coin', 'wallet_address',)

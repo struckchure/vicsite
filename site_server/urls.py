@@ -8,5 +8,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('docs/', include_docs_urls(title="Avalog API")),
     path('useraccounts/', include('useraccounts.urls')),
-    path('transactions/', include('transactions.urls')),
+    path('investments/', include('investments.urls')),
 ]
