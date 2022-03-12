@@ -30,27 +30,17 @@ INSTALLED_APPS = [
 
     # 3rd Party
     'rest_framework',
-    'rest_framework_simplejwt',
-    "rest_framework_simplejwt.token_blacklist",
+    'rest_framework.authtoken',
     'djoser',
 
     # Local Apps
     'users.apps.UsersConfig',
+    'accounts.apps.UsersConfig',
     'transactions.apps.TransactionsConfig',
     'investments.apps.InvestmentsConfig',
 ]
 
-AUTH_USER_MODEL = 'users.CustomUser'
-
-# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_UNIQUE_EMAIL = True
-# ACCOUNT_USERNAME_REQUIRED = False
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-# ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-# ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/?verification=1'
-# ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/?verification=1'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # EMAIL CONFIG
 EMAIL_BACKEND = 'django.core.mail.backends.Console.EmailBackend'
@@ -63,7 +53,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.Console.EmailBackend'
 SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = [
-    # 'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
@@ -97,18 +86,11 @@ DJOSER = {
     },
 
     'SERIALIZERS': {
-        'user_create': 'users.serializers.UserCreateSerializer',  # custom serializer
+        'user_create': 'accounts.serializers.UserCreateSerializer',  # custom serializer
         'user': 'djoser.serializers.UserSerializer',
         'current_user': 'djoser.serializers.UserSerializer',
         'user_delete': 'djoser.serializers.UserSerializer',
     },   
-}
-
-SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": ("JWT",),
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }
 
 MIDDLEWARE = [

@@ -2,8 +2,7 @@ from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from djoser.serializers import UserCreateSerializer
-from users.models import CustomUser, Balance, UserCryptoDetails
-from users.models import SEX
+from accounts.models import CustomUser, Balance, UserCryptoDetails
 
 User = get_user_model()
 
