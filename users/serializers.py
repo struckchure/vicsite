@@ -1,7 +1,18 @@
 from django.db import transaction
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from djoser.serializers import UserCreateSerializer
 from users.models import CustomUser, Balance, UserCryptoDetails
 from users.models import SEX
+
+User = get_user_model()
+
+class UserCreateSerializer(UserCreateSerializer):
+    class Meta(UserCreateSerializer.Meta):
+        model = User
+        fields = ['id', 'email', 'first_name', 'last_name', 'occupation', 'phone', 'sex']
+
+# Source: https://morioh.com/p/fe0e3a395d8b
 
 '''
 class UserSerializer(RegisterSerializer):

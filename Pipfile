@@ -11,6 +11,7 @@ pyyaml = "*"
 gunicorn = "*"
 pillow = "*"
 djoser = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
