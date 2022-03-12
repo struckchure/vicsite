@@ -12,13 +12,15 @@ SEX = (
 
 
 class CustomUser(AbstractUser):
+    firstname = models.CharField(max_length=200, null=True)
+    lastname = models.CharField(max_length=200, null=True)
     email = models.EmailField(_('email address'), unique=True)
     occupation = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
     sex = models.CharField(max_length=100, choices=SEX)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['occupation', 'phone', 'sex']
+    REQUIRED_FIELDS = ['firstname', 'lastname', 'occupation', 'phone', 'sex']
     
     objects = CustomUserManager()
 
