@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from transactions.models import InvestmentStatus
-from users.models import Balance
+from accounts.models import Balance
 
 
 class Package(models.Model):

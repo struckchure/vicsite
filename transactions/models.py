@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from users.models import Coin, CoinAddress, Balance
+from accounts.models import Coin, CoinAddress, Balance
 
 STATUS = (
     ('P', 'Pending'),

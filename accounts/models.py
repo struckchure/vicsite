@@ -29,7 +29,7 @@ class CustomUser(AbstractUser):
     lastname = models.CharField(max_length=200)
     email = models.EmailField(_('email address'), unique=True)
     occupation = models.CharField(max_length=100, choices=OCCUPATION)
-    phone = models.CharField(max_length=15, min_length=10)
+    phone = models.CharField(max_length=15)
     sex = models.CharField(max_length=20, choices=SEX)
 
     USERNAME_FIELD = 'email'

@@ -1,5 +1,4 @@
 from pathlib import Path
-from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,8 +33,7 @@ INSTALLED_APPS = [
     'djoser',
 
     # Local Apps
-    'users.apps.UsersConfig',
-    'accounts.apps.UsersConfig',
+    'accounts.apps.AccountsConfig',
     'transactions.apps.TransactionsConfig',
     'investments.apps.InvestmentsConfig',
 ]
@@ -64,7 +62,7 @@ REST_FRAMEWORK = {
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+       'rest_framework.authentication.TokenAuthentication',
     ],
 
 }
@@ -80,10 +78,10 @@ DJOSER = {
     'USERNAME_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     'PASSWORD_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': "activate/{uid}/{token}",
-    'SEND_ACTIVATION_EMAIL': True,
-    'EMAIL': {
-        'activation': 'djoser.email.ActivationEmail',
-    },
+    'SEND_ACTIVATION_EMAIL': False,
+    # 'EMAIL': {
+    #     'activation': 'djoser.email.ActivationEmail',
+    # },
 
     'SERIALIZERS': {
         'user_create': 'accounts.serializers.UserCreateSerializer',  # custom serializer
