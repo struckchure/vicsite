@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from users.models import Balance, UserCryptoDetails
 from users.serializers import UserBalanceSerializer, UserCryptoDetails
 
@@ -9,6 +9,7 @@ class UserBalanceView(generics.RetrieveAPIView):
     '''
     queryset = Balance.objects.all()
     serializer_class = UserBalanceSerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
 class UserAssetView(generics.ListCreateAPIView):
     '''
@@ -16,3 +17,4 @@ class UserAssetView(generics.ListCreateAPIView):
     '''
     queryset = UserCryptoDetails
     serializer_class = UserCryptoDetails
+    permission_classes = (permissions.IsAuthenticated,)
