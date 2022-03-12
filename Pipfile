@@ -8,10 +8,9 @@ django = "*"
 djangorestframework = "*"
 coreapi = "*"
 pyyaml = "*"
-django-allauth = "*"
-dj-rest-auth = "*"
 gunicorn = "*"
 pillow = "*"
+djoser = "*"
 
 [dev-packages]
 

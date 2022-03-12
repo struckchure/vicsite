@@ -30,17 +30,11 @@ INSTALLED_APPS = [
     # 3rd Party
     'rest_framework',
     'rest_framework.authtoken',
-    'dj_rest_auth',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'dj_rest_auth.registration', 
 
     # Local Apps
     'users.apps.UsersConfig',
     'transactions.apps.TransactionsConfig',
     'investments.apps.InvestmentsConfig',
-    'useraccounts.apps.UseraccountsConfig',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -78,13 +72,13 @@ REST_FRAMEWORK = {
 
 }
 
-REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'users.serializers.UserSerializer',
-}
+# REST_AUTH_REGISTER_SERIALIZERS = {
+#     'REGISTER_SERIALIZER': 'users.serializers.UserSerializer',
+# }
 
-REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER': 'users.serializers.CustomLoginSerializer',
-}
+# REST_AUTH_SERIALIZERS = {
+#     'LOGIN_SERIALIZER': 'users.serializers.CustomLoginSerializer',
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
