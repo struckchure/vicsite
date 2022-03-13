@@ -8,9 +8,18 @@ class UserBalanceView(generics.RetrieveAPIView):
     '''
     Returns User Balance
     '''
-    queryset = Balance.objects.all()
     serializer_class = UserBalanceSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        '''
+        This should return balance of the authenticated user
+        '''
+        user = self.request.user
+        return Balance.objects.filter(user=user)
+    
+
+
 
 class UserAssetView(generics.ListCreateAPIView):
     '''
@@ -19,3 +28,10 @@ class UserAssetView(generics.ListCreateAPIView):
     queryset = UserCryptoDetails
     serializer_class = UserCryptoDetails
     permission_classes = [IsAuthenticated]
+
+    # def get_queryset(self):
+    #     '''
+    #     This should return balance of the authenticated user
+    #     '''
+    #     user = self.request.user
+    #     return Balance.objects.filter(balance=user)

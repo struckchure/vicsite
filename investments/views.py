@@ -8,7 +8,7 @@ class InvestView(generics.CreateAPIView):
     This class displays the investment form
     '''
     permission_classes = [IsAuthenticated]
-    queryset = Investment.objects.all()
+    queryset = Investment
     serializer_class = InvestmentFormSerializer
 
 class PackageView(generics.CreateAPIView):
