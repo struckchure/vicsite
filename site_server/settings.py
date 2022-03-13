@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # EMAIL CONFIG
-EMAIL_BACKEND = 'django.core.mail.backends.Console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = "localhost"
 # EMAIL_PORT = "1025"
 # EMAIL_HOST_USER = ""
@@ -50,15 +50,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.Console.EmailBackend'
 
 SITE_ID = 1
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-]
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+# ]
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -76,7 +76,7 @@ DJOSER = {
     'SET_USERNAME_RETYPE': True,
     'SET_PASSWORD_RETYPE': True,
     'USERNAME_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
-    'PASSWORD_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
+    'PASSWORD_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}2efetg34t/{token}',
     'ACTIVATION_URL': "activate/{uid}/{token}",
     'SEND_ACTIVATION_EMAIL': False,
     # 'EMAIL': {
