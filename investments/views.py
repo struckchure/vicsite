@@ -13,7 +13,8 @@ class InvestView(generics.CreateAPIView):
 
 class PackageView(generics.CreateAPIView):
     '''
-    This class displays the investment form
+    This class displays the investment form.
+    This should only be visible to only Admin
     '''
     permission_classes = [IsAdminUser]
     queryset = Package.objects.all()

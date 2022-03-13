@@ -12,6 +12,7 @@ gunicorn = "*"
 pillow = "*"
 djoser = "*"
 djangorestframework-simplejwt = "*"
+whitenoise = "*"
 
 [dev-packages]
 
