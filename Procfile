@@ -1,1 +1,1 @@
-web: gunicorn vicsite.wsgi
+web: gunicorn vicsite.wsgi --log-file -
