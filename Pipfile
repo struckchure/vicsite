@@ -13,6 +13,7 @@ pillow = "*"
 djoser = "*"
 djangorestframework-simplejwt = "*"
 whitenoise = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
