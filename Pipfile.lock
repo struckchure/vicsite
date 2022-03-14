@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0c7f2e9421157c37423a2c94c167311d9fee0341d17ca5caffdc489e1de13fa3"
+            "sha256": "4165d7eab8e8ed290107f2e9e470a1feb5522b08bf68542606cb306e5386a10d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -213,13 +213,6 @@
             "index": "pypi",
             "version": "==20.1.0"
         },
-        "heroku": {
-            "hashes": [
-                "sha256:cbeba42b628bc38504d49ace86b8c1729ab2156e530fb1823954988932c8f7fb"
-            ],
-            "index": "pypi",
-            "version": "==0.1.4"
-        },
         "idna": {
             "hashes": [
                 "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff",
@@ -370,12 +363,6 @@
             "markers": "python_version >= '3.6'",
             "version": "==2.3.0"
         },
-        "python-dateutil": {
-            "hashes": [
-                "sha256:6f197348b46fb8cdf9f3fcfc2a7d5a97da95db3e2e8667cf657216274fe1b009"
-            ],
-            "version": "==1.5"
-        },
         "python3-openid": {
             "hashes": [
                 "sha256:33fbf6928f401e0b790151ed2b5290b02545e8775f982485205a066f874aaeaf",
@@ -458,7 +445,7 @@
                 "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
                 "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==1.16.0"
         },
         "social-auth-app-django": {

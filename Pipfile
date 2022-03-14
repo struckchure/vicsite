@@ -14,7 +14,6 @@ djoser = "*"
 djangorestframework-simplejwt = "*"
 whitenoise = "*"
 django-cors-headers = "*"
-heroku = "*"
 django-heroku = "*"
 
 [dev-packages]
