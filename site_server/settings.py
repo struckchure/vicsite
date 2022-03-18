@@ -13,9 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2e#mdnlk8azrd9q@tkiu!u97eblwy_4op-uy+0u)pfzfn@-rdy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['vicsites.herokuapp.com']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -62,7 +63,8 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
+        # 'rest_framework.permissions.IsAuthenticated',
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -109,22 +111,22 @@ MIDDLEWARE = [
 
 # CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ALLOW_CREDENTIALS: True
 
 CORS_ALLOWED_ORIGINS = [
-  'https://crypto-bank-dashboard.vercel.app/',
+  'https://crypto-bank-dashboard.vercel.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://crypto-bank-dashboard.vercel.app/',
+    'https://crypto-bank-dashboard.vercel.app',
 ]
 
 CORS_ORIGIN_WHITELIST = (
   'http://localhost:8000',
   'http://localhost:3000',
-  'https://crypto-bank-dashboard.vercel.app/',
+  'https://crypto-bank-dashboard.vercel.app',
 #   'https://crypto-bank-dashboard.vercel.app/'
 )
 
