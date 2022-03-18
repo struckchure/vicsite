@@ -63,8 +63,8 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-        # 'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -117,6 +117,7 @@ CORS_ALLOW_CREDENTIALS: True
 
 CORS_ALLOWED_ORIGINS = [
   'https://crypto-bank-dashboard.vercel.app',
+  'https://vicsites.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
