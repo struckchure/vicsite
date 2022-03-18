@@ -111,6 +111,8 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 
+CORS_ALLOW_CREDENTIALS: True
+
 CORS_ALLOWED_ORIGINS = [
   'https://crypto-bank-dashboard.vercel.app/',
 ]
