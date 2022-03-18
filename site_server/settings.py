@@ -109,10 +109,11 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
   'http://localhost:8000',
   'https://crypto-bank-dashboard.vercel.app/',
+#   'https://crypto-bank-dashboard.vercel.app/'
 )
 
 ROOT_URLCONF = 'site_server.urls'
