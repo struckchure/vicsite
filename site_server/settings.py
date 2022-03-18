@@ -123,6 +123,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 CORS_ORIGIN_WHITELIST = (
   'http://localhost:8000',
+  'http://localhost:3000',
   'https://crypto-bank-dashboard.vercel.app/',
 #   'https://crypto-bank-dashboard.vercel.app/'
 )
