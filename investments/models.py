@@ -13,7 +13,9 @@ class Package(models.Model):
 
 
 class Investment(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True
+    )
     sn = models.PositiveIntegerField()
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE, null=True)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)

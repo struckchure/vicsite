@@ -5,26 +5,26 @@ from accounts.serializers import UserBalanceSerializer, UserCryptoDetails
 
 # Create your views here.
 class UserBalanceView(generics.RetrieveAPIView):
-    '''
+    """
     Returns User Balance
-    '''
+    """
+
     serializer_class = UserBalanceSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        '''
+        """
         This should return balance of the authenticated user
-        '''
+        """
         user = self.request.user
         return Balance.objects.filter(user=user)
-    
-
 
 
 class UserAssetView(generics.ListCreateAPIView):
-    '''
+    """
     Returns User Asset Details. Edit List
-    '''
+    """
+
     queryset = UserCryptoDetails
     serializer_class = UserCryptoDetails
     permission_classes = [IsAuthenticated]

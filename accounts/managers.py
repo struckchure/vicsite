@@ -7,6 +7,7 @@ class CustomUserManager(BaseUserManager):
     Custom user model manager where email is the unique identifiers
     for authentication instead of usernames.
     """
+
     def create_user(self, email, password=None, **extra_fields):
         """
         Create and save a User with the given email and password.
@@ -26,5 +27,6 @@ class CustomUserManager(BaseUserManager):
         user.is_admin = True
         user.save(using=self._db)
         return user
+
 
 # Source: https://krakensystems.co/blog/2020/custom-users-using-django-rest-framework

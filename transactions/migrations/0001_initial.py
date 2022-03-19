@@ -11,65 +11,209 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('accounts', '0001_initial'),
+        ("accounts", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='WithdrawStatus',
+            name="WithdrawStatus",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('withdraw_status', models.CharField(choices=[('P', 'Pending'), ('F', 'Failed'), ('C', 'Completed')], max_length=20)),
-                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "withdraw_status",
+                    models.CharField(
+                        choices=[("P", "Pending"), ("F", "Failed"), ("C", "Completed")],
+                        max_length=20,
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Withdraw',
+            name="Withdraw",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('wallet_address', models.CharField(max_length=500)),
-                ('amount', models.CharField(max_length=100, null=True)),
-                ('balance', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.balance')),
-                ('coin', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.coinaddress')),
-                ('status', models.ForeignKey(choices=[('P', 'Pending'), ('F', 'Failed'), ('C', 'Completed')], null=True, on_delete=django.db.models.deletion.CASCADE, to='transactions.withdrawstatus')),
-                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("wallet_address", models.CharField(max_length=500)),
+                ("amount", models.CharField(max_length=100, null=True)),
+                (
+                    "balance",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="accounts.balance",
+                    ),
+                ),
+                (
+                    "coin",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="accounts.coinaddress",
+                    ),
+                ),
+                (
+                    "status",
+                    models.ForeignKey(
+                        choices=[("P", "Pending"), ("F", "Failed"), ("C", "Completed")],
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="transactions.withdrawstatus",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='TransactionHistory',
+            name="TransactionHistory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sn', models.PositiveIntegerField()),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("sn", models.PositiveIntegerField()),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='InvestmentStatus',
+            name="InvestmentStatus",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('invest_status', models.CharField(choices=[('A', 'Active'), ('N', 'Unactive')], max_length=20)),
-                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "invest_status",
+                    models.CharField(
+                        choices=[("A", "Active"), ("N", "Unactive")], max_length=20
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='DepositStatus',
+            name="DepositStatus",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('deposit_status', models.CharField(choices=[('P', 'Pending'), ('F', 'Failed'), ('C', 'Completed')], max_length=20)),
-                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "deposit_status",
+                    models.CharField(
+                        choices=[("P", "Pending"), ("F", "Failed"), ("C", "Completed")],
+                        max_length=20,
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Deposit',
+            name="Deposit",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount', models.CharField(max_length=50)),
-                ('proof', models.ImageField(upload_to='')),
-                ('transaction_date', models.DateTimeField(auto_now_add=True)),
-                ('coin', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.coin')),
-                ('company_wallet_address', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.coinaddress')),
-                ('status', models.ForeignKey(choices=[('P', 'Pending'), ('F', 'Failed'), ('C', 'Completed')], null=True, on_delete=django.db.models.deletion.CASCADE, to='transactions.depositstatus')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("amount", models.CharField(max_length=50)),
+                ("proof", models.ImageField(upload_to="")),
+                ("transaction_date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "coin",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="accounts.coin"
+                    ),
+                ),
+                (
+                    "company_wallet_address",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="accounts.coinaddress",
+                    ),
+                ),
+                (
+                    "status",
+                    models.ForeignKey(
+                        choices=[("P", "Pending"), ("F", "Failed"), ("C", "Completed")],
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="transactions.depositstatus",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

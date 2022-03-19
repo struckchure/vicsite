@@ -6,10 +6,12 @@ from accounts.models import CustomUser, Balance, UserCryptoDetails
 
 User = get_user_model()
 
+
 class UserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields = ('id', 'email', 'firstname', 'lastname', 'occupation', 'phone', 'sex')
+        fields = ("id", "email", "firstname", "lastname", "occupation", "phone", "sex")
+
 
 # Source: https://morioh.com/p/fe0e3a395d8b
 
@@ -17,9 +19,13 @@ class UserCreateSerializer(UserCreateSerializer):
 class UserBalanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Balance
-        fields = ('balance',)
+        fields = ("balance",)
+
 
 class UserCryptoDetails(serializers.ModelSerializer):
     class Meta:
         model = UserCryptoDetails
-        fields = ('coin', 'wallet_address',)
+        fields = (
+            "coin",
+            "wallet_address",
+        )

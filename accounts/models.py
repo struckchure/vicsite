@@ -6,23 +6,24 @@ from django.utils.translation import gettext_lazy as _
 from accounts.managers import CustomUserManager
 
 SEX = (
-    ('Male', 'Male'),
-    ('Female', 'Female'),
+    ("Male", "Male"),
+    ("Female", "Female"),
 )
 
 OCCUPATION = (
-    ('Student', 'Student'),
-    ('Employed', 'Employed'),
-    ('Unemployed', 'Unemployed'),
-    ('Self-Employed', 'Self-Employed'),
-    ('Others', 'Others'),
+    ("Student", "Student"),
+    ("Employed", "Employed"),
+    ("Unemployed", "Unemployed"),
+    ("Self-Employed", "Self-Employed"),
+    ("Others", "Others"),
 )
 
 STATUS = (
-    ('Pending', 'Pending'),
-    ('Failed', 'Failed'),
-    ('Completed', 'Completed'),
+    ("Pending", "Pending"),
+    ("Failed", "Failed"),
+    ("Completed", "Completed"),
 )
+
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
@@ -36,9 +37,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['firstname', 'lastname', 'occupation', 'phone', 'sex']
-    
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["firstname", "lastname", "occupation", "phone", "sex"]
+
     objects = CustomUserManager()
 
     def get_full_name(self):
@@ -56,6 +57,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
+
 # Admin will be able to specify the available coin and it's wallet address
 class Coin(models.Model):
     coin_type = models.CharField(max_length=20)
@@ -63,22 +65,23 @@ class Coin(models.Model):
     def __str__(self):
         return self.coin_type
 
+
 class CoinAddress(models.Model):
     coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
     coin_wallet_address = models.CharField(max_length=500)
 
     def __str__(self):
         return self.coin
-    
+
+
 # Sets the user's balance
 class Balance(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     balance = models.DecimalField(max_digits=10, decimal_places=2)
+
 
 class UserCryptoDetails(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
     wallet_address = models.CharField(max_length=500)
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
-
-
