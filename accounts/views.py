@@ -17,11 +17,10 @@ class UserBalanceView(generics.RetrieveAPIView):
         This should return balance of the authenticated user
         """
         user = self.request.user
-        bal = Balance.objects.filter(user=user)
-        return bal
+        return user.Balance
 
 
-class UserAssetView(generics.ListCreateAPIView):
+class UserAsset(generics.CreateAPIView):
     """
     Returns User Asset Details. Edit List
     """
@@ -35,4 +34,21 @@ class UserAssetView(generics.ListCreateAPIView):
     #     This should return balance of the authenticated user
     #     '''
     #     user = self.request.user
-    #     return Balance.objects.filter(balance=user)
+    #     return user.Balance.all()
+
+
+class UserAssetView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Returns User Asset Details, Edit and delete..
+    """
+
+    queryset = UserCryptoDetails
+    serializer_class = UserCryptoDetails
+    permission_classes = [IsAuthenticated]
+
+    # def get_queryset(self):
+    #     '''
+    #     This should return balance of the authenticated user
+    #     '''
+    #     user = self.request.user
+    #     return user.Balance.all()

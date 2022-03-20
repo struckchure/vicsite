@@ -14,12 +14,11 @@ class InvestView(generics.CreateAPIView):
     serializer_class = InvestmentFormSerializer
 
 
-class PackageView(generics.CreateAPIView):
+class PackageView(generics.RetrieveAPIView):
     """
-    This class displays the investment form.
-    This should only be visible to only Admin
+    This class displays the Investment Packages
     """
 
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
     queryset = Package.objects.all()
     serializer_class = PackageFormSerializer

@@ -71,16 +71,16 @@ class CoinAddress(models.Model):
     coin_wallet_address = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.coin
+        return self.coin_wallet_address
 
 
 # Sets the user's balance
 class Balance(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
+    balance = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.user
+        return self.balance
 
 
 class UserCryptoDetails(models.Model):
@@ -90,4 +90,4 @@ class UserCryptoDetails(models.Model):
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user
+        return self.coin
