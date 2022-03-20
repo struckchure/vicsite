@@ -79,9 +79,15 @@ class Balance(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     balance = models.DecimalField(max_digits=10, decimal_places=2)
 
+    def __str__(self):
+        return self.user
+
 
 class UserCryptoDetails(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
     wallet_address = models.CharField(max_length=500)
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user

@@ -6,8 +6,8 @@ from accounts.models import Balance
 
 class Package(models.Model):
     name = models.CharField(max_length=30, null=True)
-    maximum_stake = models.DecimalField(max_digits=6, decimal_places=2)
-    minimum_stake = models.DecimalField(max_digits=3, decimal_places=2)
+    maximum_stake = models.DecimalField(max_digits=6, decimal_places=6)
+    minimum_stake = models.DecimalField(max_digits=3, decimal_places=3)
     roi = models.PositiveIntegerField()
     duration = models.CharField(max_length=30)
 

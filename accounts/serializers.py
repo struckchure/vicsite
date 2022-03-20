@@ -19,7 +19,7 @@ class UserCreateSerializer(UserCreateSerializer):
 class UserBalanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Balance
-        fields = ("balance",)
+        fields = ("user", "balance",)
 
 
 class UserCryptoDetails(serializers.ModelSerializer):

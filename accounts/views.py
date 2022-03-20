@@ -17,7 +17,8 @@ class UserBalanceView(generics.RetrieveAPIView):
         This should return balance of the authenticated user
         """
         user = self.request.user
-        return Balance.objects.filter(user=user)
+        bal = Balance.objects.filter(user=user)
+        return bal
 
 
 class UserAssetView(generics.ListCreateAPIView):
