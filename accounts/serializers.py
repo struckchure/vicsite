@@ -2,7 +2,7 @@ from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from djoser.serializers import UserCreateSerializer
-from accounts.models import CustomUser, Balance, UserCryptoDetails
+from accounts.models import CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
 
 User = get_user_model()
 
@@ -15,6 +15,16 @@ class UserCreateSerializer(UserCreateSerializer):
 
 # Source: https://morioh.com/p/fe0e3a395d8b
 
+class CoinOption(serializers.ModelSerializer):
+    class Meta:
+        model = Coin 
+        fields = "__all__"
+
+
+class CoinAddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CoinAddress
+        fields = "__all__"
 
 class UserBalanceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,7 +32,10 @@ class UserBalanceSerializer(serializers.ModelSerializer):
         fields = ("balance",)
 
 
-class UserCryptoDetails(serializers.ModelSerializer):
+class UserCryptoDetailsSerializer(serializers.ModelSerializer):
+    '''
+    User ought to enter his or her coin/coin address or wallet/ wallet id
+    '''
     class Meta:
         model = UserCryptoDetails
         fields = (

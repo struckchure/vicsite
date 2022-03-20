@@ -14,11 +14,11 @@ class InvestView(generics.CreateAPIView):
     serializer_class = InvestmentFormSerializer
 
 
-class PackageView(generics.RetrieveAPIView):
+class PackageView(generics.ListAPIView):
     """
     This class displays the Investment Packages
     """
 
-    permission_classes = [IsAuthenticated]
     queryset = Package.objects.all()
     serializer_class = PackageFormSerializer
+    permission_classes = [IsAuthenticated]
