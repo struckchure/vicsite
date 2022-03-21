@@ -27,7 +27,7 @@ class UserBalanceView(generics.GenericAPIView):
 
 class UserAsset(generics.CreateAPIView):
     """
-    Returns User Asset Details. Edit List
+    Creates User Asset Details. Edit List
     """
 
     queryset = UserCryptoDetails

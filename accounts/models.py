@@ -82,12 +82,11 @@ class Balance(models.Model):
     def __str__(self):
         return self.balance
 
-
+# User crypto details are being stored here
 class UserCryptoDetails(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     coin = models.CharField(max_length=400)
     wallet_address = models.CharField(max_length=500)
-    balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.coin
