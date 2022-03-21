@@ -19,5 +19,5 @@ class Investment(models.Model):
     sn = models.PositiveIntegerField()
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE, null=True)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=3, decimal_places=2, null=True)
+    amount = models.PositiveIntegerField(default="000.00", null=True)
     status = models.ForeignKey(InvestmentStatus, on_delete=models.CASCADE, null=True)
