@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated
 from accounts.models import CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
 from accounts.serializers import UserBalanceSerializer, UserCryptoDetailsSerializer, CoinOption, CoinAddressSerializer
@@ -33,6 +32,16 @@ class UserAsset(generics.ListCreateAPIView):
     queryset = UserCryptoDetails.objects.all()
     serializer_class = UserCryptoDetailsSerializer
     permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user = get_object_or_404(CustomUser, pk=request.user.pk)
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.validated_data["user"]= user
+        serializer.save()
+        return Response({
+            "message": "success",
+        }, status=status.HTTP_200_OK)
 
     # def get_queryset(self):
     #     '''

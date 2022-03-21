@@ -58,9 +58,7 @@ class Withdraw(models.Model):
     coin = models.ForeignKey(CoinAddress, on_delete=models.CASCADE)
     wallet_address = models.CharField(max_length=500)
     amount = models.CharField(max_length=100, null=True)
-    status = models.ForeignKey(
-        WithdrawStatus, on_delete=models.CASCADE, choices=STATUS, null=True
-    )
+    status = models.CharField(max_length=20, choices=INVEST_STATUS, null=True)
 
     def __str__(self):
         return self.user

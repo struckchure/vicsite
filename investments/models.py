@@ -3,6 +3,10 @@ from django.db import models
 from transactions.models import InvestmentStatus
 from accounts.models import Balance
 
+INVEST_STATUS = (
+    ("A", "Active"),
+    ("N", "Unactive"),
+)
 
 class Package(models.Model):
     name = models.CharField(max_length=30, null=True)
@@ -14,10 +18,16 @@ class Package(models.Model):
 
 class Investment(models.Model):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False
     )
     sn = models.PositiveIntegerField(null=True)
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE, null=True)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField(default="000.00", null=True)
-    status = models.ForeignKey(InvestmentStatus, on_delete=models.CASCADE, null=True)
+    status = models.CharField(max_length=20, choices=INVEST_STATUS, null=True)
+
+    # status = models.ForeignKey(InvestmentStatus, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.user.firstname
+    

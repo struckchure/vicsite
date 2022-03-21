@@ -1,7 +1,10 @@
-from rest_framework import generics
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework import generics, status
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from investments.models import Investment, Package
 from investments.serializers import InvestmentFormSerializer, PackageFormSerializer, InvestmentHistorySerializer
+from accounts.models import CustomUser
 
 
 class InvestView(generics.CreateAPIView):
@@ -12,6 +15,16 @@ class InvestView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
     queryset = Investment
     serializer_class = InvestmentFormSerializer
+
+    def post(self, request):
+        user = get_object_or_404(CustomUser, pk=request.user.pk)
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.validated_data["user"]= user
+        serializer.save()
+        return Response({
+            "message": "success",
+        }, status=status.HTTP_200_OK)
 
 class InvestHistoryView(generics.ListAPIView):
     """
