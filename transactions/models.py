@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from accounts.models import Coin, CoinAddress, Balance
+from investments.models import Package
 
 STATUS = (
     ("P", "Pending"),
@@ -67,6 +68,7 @@ class Withdraw(models.Model):
 class Deposit(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
+    package = models.ForeignKey(Package, on_delete=models.CASCADE, null=True, blank=True)
     company_wallet_address = models.ForeignKey(CoinAddress, on_delete=models.CASCADE)
     amount = models.CharField(max_length=50)
     proof = models.ImageField()
@@ -75,5 +77,5 @@ class Deposit(models.Model):
         DepositStatus, on_delete=models.CASCADE, choices=STATUS, null=True
     )
 
-    def __str__(self):
-        return self.user
+    # def __str__(self):
+    #     return self.user

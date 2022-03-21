@@ -8,6 +8,7 @@ class DepositHistorySerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "coin",
+            "package",
             "company_wallet_address",
             "amount",
             "proof",
@@ -20,6 +21,7 @@ class DepositFormSerializer(serializers.ModelSerializer):
     class Meta:
         model = Deposit
         fields = (
+            "package",
             "coin",
             "company_wallet_address",
             "amount",
