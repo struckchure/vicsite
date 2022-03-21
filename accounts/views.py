@@ -25,12 +25,12 @@ class UserBalanceView(generics.GenericAPIView):
         return Response(serializer.data, status = status.HTTP_200_OK)
 
 
-class UserAsset(generics.CreateAPIView):
+class UserAsset(generics.ListCreateAPIView):
     """
     Creates User Asset Details. Edit List
     """
 
-    queryset = UserCryptoDetails
+    queryset = UserCryptoDetails.objects.all()
     serializer_class = UserCryptoDetailsSerializer
     permission_classes = [IsAuthenticated]
 
@@ -42,7 +42,7 @@ class UserAsset(generics.CreateAPIView):
     #     return user.Balance.all()
 
 
-class UserAssetView(generics.RetrieveUpdateDestroyAPIView):
+class UserAssetUpdateView(generics.UpdateAPIView):
     """
     Returns User Asset Details, Edit and delete..
     """
@@ -51,12 +51,15 @@ class UserAssetView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserCryptoDetailsSerializer
     permission_classes = [IsAuthenticated]
 
-    # def get_queryset(self):
-    #     '''
-    #     This should return balance of the authenticated user
-    #     '''
-    #     user = self.request.user
-    #     return user.Balance.all()
+class UserAssetDeleteView(generics.DestroyAPIView):
+    """
+    Returns User Asset Details, Edit and delete..
+    """
+
+    queryset = UserCryptoDetails
+    serializer_class = UserCryptoDetailsSerializer
+    permission_classes = [IsAuthenticated]
+
 
 class CoinOptionView(generics.ListAPIView):
     ''' Returns a list of coin/wallet '''

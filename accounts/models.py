@@ -84,7 +84,7 @@ class Balance(models.Model):
 
 # User crypto details are being stored here
 class UserCryptoDetails(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     coin = models.CharField(max_length=400)
     wallet_address = models.CharField(max_length=500)
 
