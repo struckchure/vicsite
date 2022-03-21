@@ -1,4 +1,6 @@
-from rest_framework import generics
+from django.shortcuts import get_object_or_404
+from rest_framework import generics, status
+from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from transactions.models import Deposit, Withdraw
 from transactions.serializers import (
@@ -6,6 +8,7 @@ from transactions.serializers import (
     WithdrawSerializer,
     DepositFormSerializer,
 )
+from accounts.models import CustomUser
 
 
 class DepositView(generics.CreateAPIView):
@@ -44,16 +47,19 @@ class WithdrawView(generics.CreateAPIView):
     serializer_class = WithdrawSerializer
 
 
-class WithdrawHistory(generics.ListAPIView):
+class WithdrawHistory(generics.GenericAPIView):
     """
     This class handles the response for viewing withdraw history
     """
 
     serializer_class = WithdrawSerializer
 
-    def get_queryset(self):
+    def get(self, request):
         """
         This should return Withdraw History of the authenticated user
         """
-        user = self.request.user
-        return Withdraw.objects.filter(user=user)
+        user = get_object_or_404(CustomUser, pk=request.user.pk)
+        his = get_object_or_404(Withdraw, user=user)
+        print(user)
+        serializer = self.serializer_class(instance=his)
+        return Response(serializer.data, status = status.HTTP_200_OK)

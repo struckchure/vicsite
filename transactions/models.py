@@ -54,7 +54,7 @@ class Withdraw(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True
     )
-    balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
+    # balance = models.ForeignKey(Balance, on_delete=models.CASCADE)
     coin = models.ForeignKey(CoinAddress, on_delete=models.CASCADE)
     wallet_address = models.CharField(max_length=500)
     amount = models.CharField(max_length=100, null=True)
