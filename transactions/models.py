@@ -37,7 +37,7 @@ class WithdrawStatus(models.Model):
     withdraw_status = models.CharField(max_length=20, choices=STATUS)
 
     def __str__(self):
-        return self.user
+        return self.withdraw_status
 
 
 class InvestmentStatus(models.Model):
@@ -47,7 +47,7 @@ class InvestmentStatus(models.Model):
     invest_status = models.CharField(max_length=20, choices=INVEST_STATUS)
 
     def __str__(self):
-        return self.user
+        return self.invest_status
 
 
 class Withdraw(models.Model):

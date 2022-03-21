@@ -14,6 +14,20 @@ class InvestmentFormSerializer(serializers.ModelSerializer):
             "amount",
         )
 
+class InvestmentHistorySerializer(serializers.ModelSerializer):
+    """
+    Returns Investment History
+    """
+
+    class Meta:
+        model = Investment
+        fields = (
+            "balance",
+            "package",
+            "amount",
+            "status",
+        )
+
 
 class PackageFormSerializer(serializers.ModelSerializer):
     """
@@ -23,6 +37,7 @@ class PackageFormSerializer(serializers.ModelSerializer):
     class Meta:
         model = Package
         fields = (
+            "id",
             "maximum_stake",
             "minimum_stake",
             "roi",

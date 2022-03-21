@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from investments.models import Investment, Package
-from investments.serializers import InvestmentFormSerializer, PackageFormSerializer
+from investments.serializers import InvestmentFormSerializer, PackageFormSerializer, InvestmentHistorySerializer
 
 
 class InvestView(generics.CreateAPIView):
@@ -12,6 +12,15 @@ class InvestView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
     queryset = Investment
     serializer_class = InvestmentFormSerializer
+
+class InvestHistoryView(generics.ListAPIView):
+    """
+    This class displays the investment History
+    """
+
+    permission_classes = [IsAuthenticated]
+    queryset = Investment.objects.all()
+    serializer_class = InvestmentHistorySerializer
 
 
 class PackageView(generics.ListAPIView):
