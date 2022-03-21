@@ -17,13 +17,13 @@ class Package(models.Model):
 
 class Investment(models.Model):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=False
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
     )
     sn = models.PositiveIntegerField(null=True)
     balance = models.ForeignKey(Balance, on_delete=models.CASCADE, null=True)
     package = models.ForeignKey(Package, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField(default="000.00", null=True)
-    status = models.CharField(max_length=20, choices=INVEST_STATUS, null=True)
+    status = models.CharField(max_length=20, choices=INVEST_STATUS)
 
     # def __str__(self):
         # return self.user.firstname

@@ -74,7 +74,7 @@ class Deposit(models.Model):
     proof = models.ImageField()
     transaction_date = models.DateTimeField(auto_now_add=True)
     status = models.ForeignKey(
-        DepositStatus, on_delete=models.CASCADE, choices=STATUS, null=True
+        DepositStatus, on_delete=models.CASCADE, choices=STATUS
     )
 
     # def __str__(self):
