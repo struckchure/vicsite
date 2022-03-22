@@ -14,6 +14,12 @@ INVEST_STATUS = (
     ("N", "Unactive"),
 )
 
+W_STATUS = (
+    ("SUCCESS", "SUCCESS"),
+    ("INSUFFICIENT", "INSUFFICIENT"),
+    ("FAILURE", "FAILURE"), # Failure due to wrong details
+)
+
 # Not Funtional
 class TransactionHistory(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -60,7 +66,7 @@ class Withdraw(models.Model):
     wallet_address = models.CharField(max_length=500)
     amount = models.CharField(max_length=100, null=True)
     transaction_date = models.DateTimeField(auto_now_add=True, null=True)
-    status = models.CharField(max_length=20, choices=STATUS, null=True)
+    status = models.CharField(max_length=20, choices=W_STATUS, null=True)
 
     def __str__(self):
         return self.user.firstname

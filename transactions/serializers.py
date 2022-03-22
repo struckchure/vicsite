@@ -42,6 +42,7 @@ class WithdrawHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Withdraw
         fields = (
+            "id",
             "coin",
             "wallet_address",
             "amount",
