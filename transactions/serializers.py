@@ -37,3 +37,14 @@ class WithdrawSerializer(serializers.ModelSerializer):
             "wallet_address",
             "amount",
         )
+
+class WithdrawHistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Withdraw
+        fields = (
+            "coin",
+            "wallet_address",
+            "amount",
+            "transaction_date",
+            "status",
+        )

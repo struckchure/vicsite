@@ -6,6 +6,7 @@ from transactions.models import Deposit, Withdraw
 from transactions.serializers import (
     DepositHistorySerializer,
     WithdrawSerializer,
+    WithdrawHistorySerializer,
     DepositFormSerializer,
 )
 from accounts.models import CustomUser
@@ -74,7 +75,7 @@ class WithdrawHistory(generics.GenericAPIView):
     This class handles the response for viewing withdraw history
     """
 
-    serializer_class = WithdrawSerializer
+    serializer_class = WithdrawHistorySerializer
 
     def get(self, request):
         """

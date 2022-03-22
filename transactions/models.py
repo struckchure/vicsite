@@ -59,6 +59,7 @@ class Withdraw(models.Model):
     coin = models.ForeignKey(CoinAddress, on_delete=models.CASCADE)
     wallet_address = models.CharField(max_length=500)
     amount = models.CharField(max_length=100, null=True)
+    transaction_date = models.DateTimeField(auto_now_add=True, null=True)
     status = models.CharField(max_length=20, choices=INVEST_STATUS, null=True)
 
     def __str__(self):
