@@ -1,9 +1,9 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import status, generics
-from rest_framework.permissions import IsAuthenticated
-from accounts.models import CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
-from accounts.serializers import UserBalanceSerializer, UserCryptoDetailsSerializer, CoinOption, CoinAddressSerializer
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from accounts.models import CustomUser, Contact, Balance, UserCryptoDetails, Coin, CoinAddress
+from accounts.serializers import ContactUS, UserBalanceSerializer, UserCryptoDetailsSerializer, CoinOption, CoinAddressSerializer
 
 # Create your views here.
 class UserBalanceView(generics.GenericAPIView):
@@ -91,5 +91,10 @@ class CoinAddressView(generics.RetrieveAPIView):
         serializer = self.serializer_class(instance=coin_address)
         return Response(serializer.data, status = status.HTTP_200_OK)
 
+class ContactView(generics.CreateAPIView):
+    ''' Contact us Form '''
+    queryset = Contact
+    serializer_class = ContactUS
+    permission_classes = [AllowAny]
 
 

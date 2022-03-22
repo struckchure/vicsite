@@ -2,11 +2,11 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from gdstorage.storage import GoogleDriveStorage
+# from gdstorage.storage import GoogleDriveStorage
 from accounts.managers import CustomUserManager
 
 # Define Google Drive Storage
-gd_storage = GoogleDriveStorage()
+# gd_storage = GoogleDriveStorage()
 
 SEX = (
     ("Male", "Male"),
@@ -93,3 +93,11 @@ class UserCryptoDetails(models.Model):
 
     def __str__(self):
         return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email)
+
+class Contact(models.Model):
+    c_email = models.EmailField(max_length=254)
+    msg = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.c_email
+    

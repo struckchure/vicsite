@@ -2,7 +2,7 @@ from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from djoser.serializers import UserCreateSerializer
-from accounts.models import CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
+from accounts.models import Contact, CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
 
 User = get_user_model()
 
@@ -41,4 +41,14 @@ class UserCryptoDetailsSerializer(serializers.ModelSerializer):
         fields = (
             "coin",
             "wallet_address",
+        )
+
+class ContactUS(serializers.ModelSerializer):
+    ''' Contact us form '''
+
+    class Meta:
+        model = Contact
+        fields = (
+            "c_email",
+            "msg",
         )

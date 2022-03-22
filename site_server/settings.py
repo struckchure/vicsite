@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "djoser",
     "corsheaders",
-    "gdstorage",
+    # "gdstorage",
     # Local Apps
     "accounts.apps.AccountsConfig",
     "transactions.apps.TransactionsConfig",
@@ -210,4 +210,4 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 django_heroku.settings(locals())
 
 # Peculiar to google cloud storage
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '78a23bb0124ac97ec7404104ae37dccffe33846a'
+# GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '78a23bb0124ac97ec7404104ae37dccffe33846a'
