@@ -4,9 +4,9 @@ from accounts.models import Coin, CoinAddress, Balance
 from investments.models import Package
 
 STATUS = (
-    ("P", "Pending"),
-    ("F", "Failed"),
-    ("C", "Completed"),
+    ("Pending", "Pending"),
+    ("Failed", "Failed"),
+    ("Completed", "Completed"),
 )
 
 INVEST_STATUS = (
@@ -60,10 +60,10 @@ class Withdraw(models.Model):
     wallet_address = models.CharField(max_length=500)
     amount = models.CharField(max_length=100, null=True)
     transaction_date = models.DateTimeField(auto_now_add=True, null=True)
-    status = models.CharField(max_length=20, choices=INVEST_STATUS, null=True)
+    status = models.CharField(max_length=20, choices=STATUS, null=True)
 
     def __str__(self):
-        return self.user
+        return self.user.firstname
 
 
 class Deposit(models.Model):
