@@ -73,9 +73,7 @@ class Deposit(models.Model):
     amount = models.CharField(max_length=50)
     proof = models.ImageField()
     transaction_date = models.DateTimeField(auto_now_add=True)
-    status = models.ForeignKey(
-        DepositStatus, on_delete=models.CASCADE, choices=STATUS
-    )
+    status = models.CharField(max_length=20, choices=STATUS, default="status")
 
     # def __str__(self):
     #     return self.user
