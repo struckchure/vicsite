@@ -71,7 +71,7 @@ class Deposit(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, null=True, blank=True)
     company_wallet_address = models.ForeignKey(CoinAddress, on_delete=models.CASCADE)
     amount = models.CharField(max_length=50)
-    proof = models.ImageField()
+    proof =models.CharField(max_length=800)
     transaction_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=STATUS, default="status")
 
