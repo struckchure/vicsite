@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "djoser",
     "corsheaders",
+    "gdstorage",
     # Local Apps
     "accounts.apps.AccountsConfig",
     "transactions.apps.TransactionsConfig",

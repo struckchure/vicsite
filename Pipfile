@@ -15,6 +15,7 @@ djangorestframework-simplejwt = "*"
 whitenoise = "*"
 django-cors-headers = "*"
 django-heroku = "*"
+django-googledrive-storage = "*"
 
 [dev-packages]
 
