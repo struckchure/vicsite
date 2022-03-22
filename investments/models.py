@@ -14,6 +14,10 @@ class Package(models.Model):
     roi = models.PositiveIntegerField()
     duration = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.name
+    
+
 
 class Investment(models.Model):
     user = models.ForeignKey(
@@ -25,6 +29,6 @@ class Investment(models.Model):
     amount = models.PositiveIntegerField(default="000.00", null=True)
     status = models.CharField(max_length=20, choices=INVEST_STATUS)
 
-    # def __str__(self):
-        # return self.user.firstname
+    def __str__(self):
+        return "{} {}".format(self.user.firstname, self.user.lastname)
     

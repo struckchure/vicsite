@@ -71,7 +71,7 @@ class CoinAddress(models.Model):
     coin_wallet_address = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.coin_wallet_address
+        return self.coin.coin_type
 
 
 # Sets the user's balance
@@ -80,7 +80,7 @@ class Balance(models.Model):
     balance = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.balance
+        return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email)
 
 # User crypto details are being stored here
 class UserCryptoDetails(models.Model):
@@ -89,4 +89,4 @@ class UserCryptoDetails(models.Model):
     wallet_address = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.coin
+        return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email)

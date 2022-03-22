@@ -69,7 +69,7 @@ class Withdraw(models.Model):
     status = models.CharField(max_length=20, choices=W_STATUS, null=True)
 
     def __str__(self):
-        return self.user.firstname
+        return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email)
 
 
 class Deposit(models.Model):
@@ -82,5 +82,5 @@ class Deposit(models.Model):
     transaction_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=STATUS, default="status")
 
-    # def __str__(self):
-    #     return self.user
+    def __str__(self):
+        return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email)
