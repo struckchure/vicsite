@@ -208,3 +208,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 django_heroku.settings(locals())
+
+# Peculiar to google cloud storage
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '78a23bb0124ac97ec7404104ae37dccffe33846a'
