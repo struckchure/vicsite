@@ -7,6 +7,7 @@ from accounts.views import (
     CoinAddressView, 
     CoinOptionView,
     ContactView,
+    ProfilepicView,
 
 )
 
@@ -20,4 +21,5 @@ urlpatterns = [
     path("coins/", CoinOptionView.as_view()),
     path("coinaddress/<int:coin_id>/", CoinAddressView.as_view()),
     path("contactus/", ContactView.as_view()),
+    path("profilepic/", ProfilepicView().as_view()),
 ]

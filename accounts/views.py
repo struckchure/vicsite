@@ -2,8 +2,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from accounts.models import CustomUser, Contact, Balance, UserCryptoDetails, Coin, CoinAddress
-from accounts.serializers import ContactUS, UserBalanceSerializer, UserCryptoDetailsSerializer, CoinOption, CoinAddressSerializer
+from accounts.models import CustomUser, Contact, Balance, UserCryptoDetails, Coin, CoinAddress, Profilepic
+from accounts.serializers import ProfilePicSerializer, ContactUS, UserBalanceSerializer, UserCryptoDetailsSerializer, CoinOption, CoinAddressSerializer
 
 # Create your views here.
 class UserBalanceView(generics.GenericAPIView):
@@ -97,4 +97,19 @@ class ContactView(generics.CreateAPIView):
     serializer_class = ContactUS
     permission_classes = [AllowAny]
 
+class ProfilepicView(generics.ListCreateAPIView):
+
+    queryset= Profilepic.objects.all()
+    serializer_class = ProfilePicSerializer
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user = get_object_or_404(CustomUser, pk=request.user.pk)
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.validated_data["user"]= user
+        serializer.save()
+        return Response({
+            "message": "success",
+        }, status=status.HTTP_200_OK)
 

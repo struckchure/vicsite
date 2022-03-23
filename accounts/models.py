@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from cloudinary.models import CloudinaryField
 from accounts.managers import CustomUserManager
 
 
@@ -97,4 +98,7 @@ class Contact(models.Model):
     
     def __str__(self):
         return self.c_email
-    
+
+class Profilepic(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    img = CloudinaryField('image')

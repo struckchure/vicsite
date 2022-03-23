@@ -2,7 +2,7 @@ from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from djoser.serializers import UserCreateSerializer
-from accounts.models import Contact, CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
+from accounts.models import Profilepic, Contact, CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
 
 User = get_user_model()
 
@@ -52,3 +52,8 @@ class ContactUS(serializers.ModelSerializer):
             "c_email",
             "msg",
         )
+
+class ProfilePicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profilepic
+        fields = "__all__"
