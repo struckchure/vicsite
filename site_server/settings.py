@@ -9,7 +9,8 @@ import cloudinary.api
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, False),
+    EMAIL_USE_TLS=(bool, True)
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,7 +47,6 @@ INSTALLED_APPS = [
     "djoser",
     "corsheaders",
     "cloudinary",
-    # "gdstorage",
     # Local Apps
     "accounts.apps.AccountsConfig",
     "transactions.apps.TransactionsConfig",
@@ -57,11 +57,12 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 # EMAIL CONFIG
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-# EMAIL_HOST = "localhost"
-# EMAIL_PORT = "1025"
-# EMAIL_HOST_USER = ""
-# EMAIL_HOST_PASSWORD = ""
-# EMAIL_USE_TLS = False
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+# EMAIL_USE_TLS = env("EMAIL_USE_TLS")
 
 SITE_ID = 1
 
@@ -90,17 +91,21 @@ DJOSER = {
     "SET_USERNAME_RETYPE": True,
     "SET_PASSWORD_RETYPE": True,
     "USERNAME_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
-    "PASSWORD_RESET_CONFIRM_URL": "email/reset/confirm/{uid}2efetg34t/{token}",
+    "PASSWORD_RESET_CONFIRM_URL": "/accounts/auth/users/reset_password_confirm/{uid}2efetg34t/{token}",
+    # "PASSWORD_RESET_CONFIRM_URL": "email/reset/confirm/{uid}2efetg34t/{token}",
     "ACTIVATION_URL": "activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": False,
-    # 'EMAIL': {
-    #     'activation': 'djoser.email.ActivationEmail',
-    # },
+    'EMAIL': {
+        "password_reset": "djoser.email.PasswordResetEmail",
+        "password_changed_confirmation": "djoser.email.PasswordChangedConfirmationEmail",
+    },
     "SERIALIZERS": {
         "user_create": "accounts.serializers.UserCreateSerializer",  # custom serializer
         "user": "djoser.serializers.UserSerializer",
         "current_user": "djoser.serializers.UserSerializer",
         "user_delete": "djoser.serializers.UserSerializer",
+        "password_reset": "djoser.serializers.SendEmailResetSerializer",
+        "password_reset_confirm": "djoser.serializers.PasswordResetConfirmSerializer",
     },
 }
 
