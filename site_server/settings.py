@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import django_heroku
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,10 +11,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-2e#mdnlk8azrd9q@tkiu!u97eblwy_4op-uy+0u)pfzfn@-rdy"
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
 # ALLOWED_HOSTS = []
@@ -210,4 +211,4 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 django_heroku.settings(locals())
 
 # Peculiar to google cloud storage
-# GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '78a23bb0124ac97ec7404104ae37dccffe33846a'
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = config("GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE")

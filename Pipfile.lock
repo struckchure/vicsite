@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "124ec7c41acc40d3727459c7f3033555795882380101252488929a2b0ef144b0"
+            "sha256": "f009fef4e27cafe48d5de0f537c425eb36d61a963f2454edfc88a39ca5431b5a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -230,11 +230,11 @@
         },
         "google-api-python-client": {
             "hashes": [
-                "sha256:ce25fc21cf0649a1cbf42583e78d5fd7648ff2700e7b89b945209149ba913adc",
-                "sha256:facbe8e25ea9d07241299bf7704f53dec154ad3dc52fec2ea23ca6d6e5f6b392"
+                "sha256:303f5e7005b26e5ca4d2f04489545cdc482ca558e8932e528217e11127c17cd8",
+                "sha256:7bf58b665b635d06adb47797a9a4f73482e739e02ed036cd960dc7c183361f67"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==2.41.0"
+            "version": "==2.42.0"
         },
         "google-auth": {
             "hashes": [
@@ -509,6 +509,14 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==2.8.2"
         },
+        "python-decouple": {
+            "hashes": [
+                "sha256:2838cdf77a5cf127d7e8b339ce14c25bceb3af3e674e039d4901ba16359968c7",
+                "sha256:6cf502dc963a5c642ea5ead069847df3d916a6420cad5599185de6bab11d8c2e"
+            ],
+            "index": "pypi",
+            "version": "==3.6"
+        },
         "python3-openid": {
             "hashes": [
                 "sha256:33fbf6928f401e0b790151ed2b5290b02545e8775f982485205a066f874aaeaf",
@@ -612,11 +620,11 @@
         },
         "social-auth-core": {
             "hashes": [
-                "sha256:08fe6645b98950cff9d6970b6704345f821d78729df0164bca0002c624b001e1",
-                "sha256:af6fc7d9ee39f0aa697cd953121add638fc32a49816341a9838a67904c39e034"
+                "sha256:5ab43b3b15dce5f059db69cc3082c216574739f0edbc98629c8c6e8769c67eb4",
+                "sha256:983b53167ac56e7ba4909db555602a6e7a98c97ca47183bb222eb85ba627bf2b"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==4.2.0"
+            "version": "==4.1.0"
         },
         "sqlparse": {
             "hashes": [
@@ -647,7 +655,7 @@
                 "sha256:44ece4d53fb1706f667c9bd1c648f5469a2ec925fcf3a776667042d645472c14",
                 "sha256:aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_full_version < '4.0.0'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
             "version": "==1.26.9"
         },
         "whitenoise": {
