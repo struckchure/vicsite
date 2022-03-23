@@ -1,7 +1,16 @@
 from pathlib import Path
 import os
 # import django_heroku
-from decouple import config
+import environ
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env(
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -11,13 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", cast=bool)
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -36,6 +45,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "djoser",
     "corsheaders",
+    "cloudinary",
     # "gdstorage",
     # Local Apps
     "accounts.apps.AccountsConfig",
@@ -210,6 +220,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # django_heroku.settings(locals())
 
-# Peculiar to google cloud storage
-# GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = config("GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE_CONTENTS")
+# cloudinary config
+cloudinary.config( 
+  cloud_name = env("cloud_name"), 
+  api_key = env("api_key"), 
+  api_secret = env("api_secret")
+)

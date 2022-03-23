@@ -16,7 +16,8 @@ whitenoise = "*"
 django-cors-headers = "*"
 django-heroku = "*"
 django-googledrive-storage = "*"
-python-decouple = "*"
+cloudinary = "*"
+django-environ = "*"
 
 [dev-packages]
 
