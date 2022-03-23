@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-import django_heroku
+# import django_heroku
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -208,7 +208,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # Peculiar to google cloud storage
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = config("GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE")
+# GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = config("GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE_CONTENTS")
