@@ -26,8 +26,8 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "transactions.apps.TransactionsConfig",
     "investments.apps.InvestmentsConfig",
+    "contents.apps.ContentsConfig",
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"
