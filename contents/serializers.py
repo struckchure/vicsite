@@ -15,49 +15,52 @@ from contents.models import (
 
 class CarouselAboutSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Carousel_About.objects.all()
+        model = Carousel_About
         fields = "__all__"
 
 class CarouselHomeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Carousel_Home.objects.all()
+        model = Carousel_Home
         fields = "__all__"
 
 # Who_We_Are Model
 class WWASerializer(serializers.ModelSerializer):
     class Meta:
-        model = Who_we_are.objects.all()
+        model = Who_we_are
         fields = "__all__"
 
 # Who_We_Are_Sub Model
 class WWESSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Who_we_are_sub.objects.all()
+        model = Who_we_are_sub
         fields = "__all__"
 
 class TopExecutiveSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Top_executive.objects.all()
+        model = Top_executive
         fields = "__all__"
 
 class TopExecutiveBodySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Top_executive_body.objects.all()
+        model = Top_executive_body
         fields = "__all__"
 
 class OurOfferingSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Our_offering.objects.all()
+        model = Our_offering
         fields = "__all__"
 
 class TestimonialSerializer(serializers.ModelSerializer):
-    model = Testimonial.objects.all()
-    fields = "__all__"
+    class Meta:
+        model = Testimonial
+        fields = "__all__"
 
 class TestimonialBodySerializer(serializers.ModelSerializer):
-    model = Testimonial_body.objects.all()
-    fields = "__all__"
+    class Meta:
+        model = Testimonial_body
+        fields = "__all__"
 
 class AboutUSSerializer(serializers.ModelSerializer):
-    model = AboutUs.objects.all()
-    fields = "__all__"
+    class Meta:
+        model = AboutUs
+        fields = "__all__"
