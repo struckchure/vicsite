@@ -6,6 +6,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env(
@@ -227,9 +228,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # django_heroku.settings(locals())
 
-# cloudinary config
-cloudinary.config( 
-  cloud_name = env("cloud_name"), 
-  api_key = env("api_key"), 
-  api_secret = env("api_secret")
-)
+CLOUDINARY_URL= env("CLOUDINARY_URL")

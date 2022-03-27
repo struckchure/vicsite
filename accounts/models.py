@@ -102,3 +102,7 @@ class Contact(models.Model):
 class Profilepic(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     img = CloudinaryField('image')
+
+    def __str__(self):
+        return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email)
+    
