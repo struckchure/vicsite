@@ -11,6 +11,7 @@ urlpatterns = [
     path("docs/", include_docs_urls(title="Avalog API")),
     path("investments/", include("investments.urls")),
     path("transactions/", include("transactions.urls")),
+    path("contents/", include("contents.urls")),
 ]
 
 if settings.DEBUG:

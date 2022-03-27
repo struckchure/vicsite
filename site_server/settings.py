@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "djoser",
     "corsheaders",
     "cloudinary",
+    "ckeditor",
     # Local Apps
     "accounts.apps.AccountsConfig",
     "transactions.apps.TransactionsConfig",

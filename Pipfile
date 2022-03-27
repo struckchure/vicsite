@@ -16,6 +16,8 @@ django-cors-headers = "*"
 django-heroku = "*"
 cloudinary = "*"
 django-environ = "*"
+django-richtextfield = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 
