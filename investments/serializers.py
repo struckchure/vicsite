@@ -38,6 +38,7 @@ class PackageFormSerializer(serializers.ModelSerializer):
         model = Package
         fields = (
             "id",
+            "name",
             "maximum_stake",
             "minimum_stake",
             "roi",
