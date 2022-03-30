@@ -4,7 +4,7 @@ import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-from ebdjango.ec2_check import get_linux_ec2_private_ip
+from site_server.ec2_check import get_linux_ec2_private_ip
 
 
 # Initialise environment variables
