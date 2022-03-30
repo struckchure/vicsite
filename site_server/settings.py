@@ -1,10 +1,10 @@
 from pathlib import Path
 import os
-# import django_heroku
 import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from ebdjango.ec2_check import get_linux_ec2_private_ip
 
 
 # Initialise environment variables
@@ -27,10 +27,13 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-# ALLOWED_HOSTS = ["vicsites.herokuapp.com", "http://siteserver-env.eba-f5mm2bqz.us-east-1.elasticbeanstalk.com"]
+ALLOWED_HOSTS = ["http://siteserver-env.eba-f5mm2bqz.us-east-1.elasticbeanstalk.com/"]
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
+# ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
 
+private_ip = get_linux_ec2_private_ip()
+if private_ip:
+    ALLOWED_HOSTS.append(private_ip)
 
 # Application definition
 
