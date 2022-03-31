@@ -29,8 +29,8 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 # ALLOWED_HOSTS = ["vicsites.herokuapp.com", "http://siteserver-env.eba-f5mm2bqz.us-east-1.elasticbeanstalk.com"]
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
 
 
 # Application definition
