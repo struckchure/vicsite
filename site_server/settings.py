@@ -29,8 +29,8 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 # ALLOWED_HOSTS = ["vicsites.herokuapp.com", "http://siteserver-env.eba-f5mm2bqz.us-east-1.elasticbeanstalk.com"]
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
 
 
 # Application definition
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "djoser",
     "corsheaders",
+    "cloudinary_storage",
     "cloudinary",
     "ckeditor",
     # Local Apps
@@ -216,6 +217,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 MEDIA_URL = "/media/"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
@@ -231,9 +233,9 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # django_heroku.settings(locals())
 
 # CLOUDINARY_URL= env("CLOUDINARY_URL")
-# cloudinary.config( 
-#   cloud_name = "CLOUD_NAME", 
-#   api_key = env("API_KEY"), 
-#   api_secret = env("API_SECRET"),
-#   secure = env("SECURE")
-# )
+cloudinary.config(
+  cloud_name = "dilshekwz",
+  api_key = "732985572112147",
+  api_secret = "sEoMHN05aeJllHFmf6X3pF5WPLs",
+  secure = True
+)
