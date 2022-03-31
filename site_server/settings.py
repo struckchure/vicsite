@@ -11,7 +11,8 @@ import cloudinary.api
 env = environ.Env()
 environ.Env.read_env(
     DEBUG=(bool, False),
-    EMAIL_USE_TLS=(bool, True)
+    EMAIL_USE_TLS=(bool, True),
+    SECURE=(bool, True)
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -229,4 +230,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # django_heroku.settings(locals())
 
-CLOUDINARY_URL= env("CLOUDINARY_URL")
+# CLOUDINARY_URL= env("CLOUDINARY_URL")
+# cloudinary.config( 
+#   cloud_name = "CLOUD_NAME", 
+#   api_key = env("API_KEY"), 
+#   api_secret = env("API_SECRET"),
+#   secure = env("SECURE")
+# )
