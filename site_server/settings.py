@@ -1,18 +1,12 @@
 from pathlib import Path
 import os
+from decouple import config as cfg
 import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from site_server.ec2_check import get_linux_ec2_private_ip
 
-
-# Initialise environment variables
-env = environ.Env()
-environ.Env.read_env(
-    DEBUG=(bool, False),
-    EMAIL_USE_TLS=(bool, True)
-)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +16,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = cfg("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = cfg("DEBUG", cast=bool, default=True)
 
 ALLOWED_HOSTS = ["Vicsites-env.eba-h2gjmify.us-east-1.elasticbeanstalk.com"]
 # ALLOWED_HOSTS = []
@@ -69,7 +63,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_PORT = 587
 # EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 # EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-# EMAIL_USE_TLS = env("EMAIL_USE_TLS")
+# EMAIL_USE_TLS = cfg("EMAIL_USE_TLS", cast=bool, default=True)
 
 SITE_ID = 1
 
@@ -177,11 +171,11 @@ WSGI_APPLICATION = "site_server.wsgi.application"
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env("DB_NAME"),
-        "USER": env("DB_USERNAME"),
-        "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
-        "PORT": env("DB_PORT"),
+        "NAME": cfg("DB_NAME"),
+        "USER": cfg("DB_USERNAME"),
+        "PASSWORD": cfg("DB_PASSWORD"),
+        "HOST": cfg("DB_HOST"),
+        "PORT": cfg("DB_PORT"),
     }
 }
 
@@ -236,4 +230,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # django_heroku.settings(locals())
 
-CLOUDINARY_URL= env("CLOUDINARY_URL")
+CLOUDINARY_URL= cfg("CLOUDINARY_URL")

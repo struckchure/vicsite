@@ -18,6 +18,7 @@ cloudinary = "*"
 django-environ = "*"
 django-richtextfield = "*"
 django-ckeditor = "*"
+python-decouple = "*"
 
 [dev-packages]
 
