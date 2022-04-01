@@ -10,6 +10,8 @@ from contents.models import (
     Testimonial,
     Testimonial_body,
     AboutUs,
+    FacebookLink,
+    InstagramLink,
 )
 
 
@@ -63,4 +65,14 @@ class TestimonialBodySerializer(serializers.ModelSerializer):
 class AboutUSSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutUs
+        fields = "__all__"
+
+class FBSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FacebookLink
+        fields = "__all__"
+
+class IGSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InstagramLink
         fields = "__all__"

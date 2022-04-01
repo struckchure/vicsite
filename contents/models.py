@@ -73,3 +73,8 @@ class AboutUs(models.Model):
     def __str__(self):
         return self.msg[:20]
     
+class FacebookLink(models.Model):
+    link = models.CharField(max_length=300)
+
+class InstagramLink(models.Model):
+    link = models.CharField(max_length=300)

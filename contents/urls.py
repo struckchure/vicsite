@@ -10,6 +10,8 @@ from contents.views import (
     TestimonialView,
     TestimonialBodyView,
     AboutUSView,
+    FacebookLink,
+    InstagramLink,
 )
 
 
@@ -24,4 +26,6 @@ urlpatterns = [
     path('testimonial', TestimonialView.as_view()),
     path('testimonial-body', TestimonialBodyView.as_view()),
     path('about-us', AboutUSView.as_view()),
+    path('fb', FacebookLink.as_view()),
+    path('ig', InstagramLink.as_view()),
 ]

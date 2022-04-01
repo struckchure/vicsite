@@ -11,6 +11,8 @@ from contents.models import (
     Testimonial,
     Testimonial_body,
     AboutUs,
+    FacebookLink,
+    InstagramLink,
 )
 from contents.serializers import (
     CarouselAboutSerializer,
@@ -23,6 +25,8 @@ from contents.serializers import (
     TestimonialSerializer,
     TestimonialBodySerializer,
     AboutUSSerializer,
+    FBSerializer,
+    IGSerializer,
 )
 
 
@@ -96,4 +100,16 @@ class AboutUSView(generics.ListAPIView):
     serializer_class = AboutUSSerializer
     permission_classes = [AllowAny]
 
+class FBView(generics.ListAPIView):
+    ''' Link to Facebook account '''
 
+    queryset = FacebookLink.objects.all()
+    serializer_class = FBSerializer
+    permission_classes = [AllowAny]
+
+class IGView(generics.ListAPIView):
+    ''' Link to Facebook account '''
+
+    queryset = InstagramLink.objects.all()
+    serializer_class = IGSerializer
+    permission_classes = [AllowAny]
