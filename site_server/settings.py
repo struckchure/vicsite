@@ -131,17 +131,19 @@ CORS_ALLOW_CREDENTIALS: True
 CORS_ALLOWED_ORIGINS = [
     "https://crypto-bank-dashboard.vercel.app",
     "https://vicsites.herokuapp.com",
+    "https://crypto-bank.vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://crypto-bank-dashboard.vercel.app",
+    "https://crypto-bank.vercel.app",
 ]
 
 CORS_ORIGIN_WHITELIST = (
     "http://localhost:8000",
     "http://localhost:3000",
     "https://crypto-bank-dashboard.vercel.app",
-    #   'https://crypto-bank-dashboard.vercel.app/'
+    "https://crypto-bank.vercel.app",
 )
 
 ROOT_URLCONF = "site_server.urls"
