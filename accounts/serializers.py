@@ -2,7 +2,7 @@ from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from djoser.serializers import UserCreateSerializer
-from accounts.models import LastDeposit, AmountInvested, Profilepic, Contact, CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
+from accounts.models import DueDate, AmountInvested, Profilepic, Contact, CustomUser, Balance, UserCryptoDetails, Coin, CoinAddress
 
 User = get_user_model()
 
@@ -58,10 +58,10 @@ class ProfilePicSerializer(serializers.ModelSerializer):
         model = Profilepic
         fields = "__all__"
 
-class LastDepositSerializer(serializers.ModelSerializer):
+class DueDateSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = LastDeposit
+        model = DueDate
         fields = "__all__"
 
 class AmountInvestedSerializer(serializers.ModelSerializer):

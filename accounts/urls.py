@@ -8,6 +8,8 @@ from accounts.views import (
     CoinOptionView,
     ContactView,
     ProfilepicView,
+    DueDateView,
+    AmountInvestedView,
 
 )
 
@@ -22,4 +24,6 @@ urlpatterns = [
     path("coinaddress/<int:coin_id>/", CoinAddressView.as_view()),
     path("contactus/", ContactView.as_view()),
     path("profilepic/", ProfilepicView().as_view()),
+    path("duedate/", DueDateView.as_view()),
+    path("amtinvested", AmountInvestedView.as_view()),
 ]
