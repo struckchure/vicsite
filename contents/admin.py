@@ -10,6 +10,8 @@ from contents.models import (
     Testimonial,
     Testimonial_body,
     AboutUs,
+    FacebookLink,
+    InstagramLink,
 )
 
 
@@ -23,3 +25,5 @@ admin.site.register(Our_offering)
 admin.site.register(Testimonial)
 admin.site.register(Testimonial_body)
 admin.site.register(AboutUs)
+admin.site.register(FacebookLink)
+admin.site.register(InstagramLink)

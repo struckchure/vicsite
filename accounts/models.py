@@ -106,14 +106,14 @@ class Profilepic(models.Model):
     def __str__(self):
         return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email)
 
-class DueDate(models.Models):
+class DueDate(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateTimeField(help_text="DD-MM-YYYY")   
 
     def __str__(self):
         return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email) 
 
-class AmountInvested(models.Models):
+class AmountInvested(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     amt = models.CharField(max_length=50)   
 

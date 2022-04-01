@@ -2,8 +2,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from accounts.models import LastDeposit, AmountInvested, CustomUser, Contact, Balance, UserCryptoDetails, Coin, CoinAddress, Profilepic
-from accounts.serializers import LastDepositSerializer, AmountInvestedSerializer, ProfilePicSerializer, ContactUS, UserBalanceSerializer, UserCryptoDetailsSerializer, CoinOption, CoinAddressSerializer
+from accounts.models import DueDate, AmountInvested, CustomUser, Contact, Balance, UserCryptoDetails, Coin, CoinAddress, Profilepic
+from accounts.serializers import DueDateSerializer, AmountInvestedSerializer, ProfilePicSerializer, ContactUS, UserBalanceSerializer, UserCryptoDetailsSerializer, CoinOption, CoinAddressSerializer
 
 # Create your views here.
 class UserBalanceView(generics.GenericAPIView):
@@ -113,10 +113,10 @@ class ProfilepicView(generics.ListCreateAPIView):
             "message": "success",
         }, status=status.HTTP_200_OK)
 
-class LastDepositView(generics.ListAPIView):
+class DueDateView(generics.ListAPIView):
 
-    queryset = LastDeposit
-    serializer_class = LastDepositSerializer
+    queryset = DueDate
+    serializer_class = DueDateSerializer
     permission_classes = [IsAuthenticated]
 
 class AmountInvestedView(generics.ListAPIView):
