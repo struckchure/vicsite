@@ -105,4 +105,17 @@ class Profilepic(models.Model):
 
     def __str__(self):
         return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email)
-    
+
+class LastDeposit(models.Models):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    amt = models.CharField(max_length=50)   
+
+    def __str__(self):
+        return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email) 
+
+class AmountInvested(models.Models):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    amt = models.CharField(max_length=50)   
+
+    def __str__(self):
+        return "{} {} || {}".format(self.user.firstname, self.user.lastname, self.user.email) 
