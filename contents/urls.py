@@ -12,6 +12,7 @@ from contents.views import (
     AboutUSView,
     FBView,
     IGView,
+    HTIView,
 )
 
 
@@ -28,4 +29,5 @@ urlpatterns = [
     path('about-us', AboutUSView.as_view()),
     path('fb', FBView.as_view()),
     path('ig', IGView.as_view()),
+    path('how-to-invest', HTIView.as_view()),
 ]

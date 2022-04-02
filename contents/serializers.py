@@ -12,6 +12,7 @@ from contents.models import (
     AboutUs,
     FacebookLink,
     InstagramLink,
+    HowToInvest,
 )
 
 
@@ -75,4 +76,10 @@ class FBSerializer(serializers.ModelSerializer):
 class IGSerializer(serializers.ModelSerializer):
     class Meta:
         model = InstagramLink
+        fields = "__all__"
+
+class HTISerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = HowToInvest
         fields = "__all__"

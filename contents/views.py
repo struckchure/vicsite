@@ -13,6 +13,7 @@ from contents.models import (
     AboutUs,
     FacebookLink,
     InstagramLink,
+    HowToInvest,
 )
 from contents.serializers import (
     CarouselAboutSerializer,
@@ -27,6 +28,7 @@ from contents.serializers import (
     AboutUSSerializer,
     FBSerializer,
     IGSerializer,
+    HTISerializer,
 )
 
 
@@ -112,4 +114,11 @@ class IGView(generics.ListAPIView):
 
     queryset = InstagramLink.objects.all()
     serializer_class = IGSerializer
+    permission_classes = [AllowAny]
+
+class HTIView(generics.ListAPIView):
+    ''' How to Invest Section '''
+
+    queryset = HowToInvest.objects.all()
+    serializer_class = HTISerializer
     permission_classes = [AllowAny]

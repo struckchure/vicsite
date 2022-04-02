@@ -78,3 +78,11 @@ class FacebookLink(models.Model):
 
 class InstagramLink(models.Model):
     link = models.CharField(max_length=300)
+
+class HowToInvest(models.Model):
+    title_one = models.CharField(max_length=500)
+    content_one = RichTextField()
+    title_two = models.CharField(max_length=500)
+    content_two = RichTextField()
+    title_three = models.CharField(max_length=500)
+    content_three = RichTextField()
