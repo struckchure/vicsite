@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import generics, status
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
 from investments.models import Investment, Package
 from investments.serializers import InvestmentFormSerializer, PackageFormSerializer, InvestmentHistorySerializer
 from accounts.models import CustomUser
@@ -43,4 +43,4 @@ class PackageView(generics.ListAPIView):
 
     queryset = Package.objects.all()
     serializer_class = PackageFormSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
