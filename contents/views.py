@@ -14,6 +14,7 @@ from contents.models import (
     FacebookLink,
     InstagramLink,
     HowToInvest,
+    Footer,
 )
 from contents.serializers import (
     CarouselAboutSerializer,
@@ -29,6 +30,7 @@ from contents.serializers import (
     FBSerializer,
     IGSerializer,
     HTISerializer,
+    FooterSerializer,
 )
 
 
@@ -121,4 +123,11 @@ class HTIView(generics.ListAPIView):
 
     queryset = HowToInvest.objects.all()
     serializer_class = HTISerializer
+    permission_classes = [AllowAny]
+
+class FooterView(generics.ListAPIView):
+    ''' Footer Content '''
+
+    queryset = Footer.objects.all()
+    serializer_class = FooterSerializer
     permission_classes = [AllowAny]
