@@ -129,21 +129,18 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS: True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://crypto-bank-dashboard.vercel.app",
     "https://vicsites.herokuapp.com",
-    "https://crypto-bank.vercel.app",
+    "https://strong-sorbet-1c7fd5.netlify.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://crypto-bank-dashboard.vercel.app",
-    "https://crypto-bank.vercel.app",
+    "https://strong-sorbet-1c7fd5.netlify.app",
 ]
 
 CORS_ORIGIN_WHITELIST = (
     "http://localhost:8000",
     "http://localhost:3000",
-    "https://crypto-bank-dashboard.vercel.app",
-    "https://crypto-bank.vercel.app",
+    "https://strong-sorbet-1c7fd5.netlify.app",
 )
 
 ROOT_URLCONF = "site_server.urls"
