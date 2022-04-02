@@ -13,6 +13,7 @@ from contents.models import (
     FacebookLink,
     InstagramLink,
     HowToInvest,
+    Footer,
 )
 
 
@@ -29,3 +30,4 @@ admin.site.register(AboutUs)
 admin.site.register(FacebookLink)
 admin.site.register(InstagramLink)
 admin.site.register(HowToInvest)
+admin.site.register(Footer)
