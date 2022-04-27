@@ -1,14 +1,12 @@
-from django.urls import path, include
+from django.urls import path
 from transactions.views import (
-    DepositHistoryView,
     DepositView,
-    WithdrawHistory,
+    TransactionHistoryView,
     WithdrawView,
 )
 
 urlpatterns = [
-    path("deposit/", DepositView.as_view()),
-    path("deposit/history/", DepositHistoryView.as_view()),
-    path("withdraw/", WithdrawView.as_view()),
-    path("withdraw/history/", WithdrawHistory.as_view()),
+    path("deposit/", DepositView.as_view(), name="deposit"),
+    path("", TransactionHistoryView.as_view(), name="transactions"),
+    path("withdraw/", WithdrawView.as_view(), name="withdraw"),
 ]

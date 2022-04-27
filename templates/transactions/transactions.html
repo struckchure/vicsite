@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Transactions | Dashboard{% endblock title %}
+
+{% block pagetitle %}Transactions{% endblock pagetitle %}
+
+{% block content %}
+<div class="rounded-xl grid grid-rows-4 h-[80vh]">
+
+    <div class="row-span-2">
+
+        <h1 class="font-medium text-xl mb-5">Investment History</h1>
+        <div class="overflow-auto rounded-lg shadow">
+            <table class="w-full">
+                <thead class="bg-gray-50 border-b-2 border-t-2 border-gray-200">
+                  <tr class="bg-white">
+                    <th class="w-32 p-3 text-sm font-medium text-left">S/N</th>
+                    <th class="w-48 p-3 text-sm font-medium text-left">Balance on Investment</th>
+                    <th class="w-20 p-3 text-sm font-medium text-left">Package</th>
+                    <th class="w-20 p-3 text-sm font-medium text-left">Amount</th>
+                    <th class="w-20 p-3 text-sm font-medium text-left">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for invest_history in invest_h %}
+                  <tr class="bg-gray-50">
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ invest_history.sn }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ invest_history.amount }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      <span class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">{{ invest_history.status }}</span>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="row-span-4">
+
+        <h1 class="font-medium text-xl mb-5">Deposit History</h1>
+        <div class="overflow-auto rounded-lg shadow">
+            <table class="w-full">
+                <thead class="bg-gray-50 border-b-2 border-t-2 border-gray-200">
+                  <tr class="bg-white">
+                    <th class="w-32 p-3 text-sm font-medium text-left">Coin</th>
+                    <th class="w-32 p-3 text-sm font-medium text-left">Company_wallet_address</th>
+                    <th class="w-48 p-3 text-sm font-medium text-left">Company_wallet_address</th>
+                    <th class="w-32 p-3 text-sm font-medium text-left">Amount</th>
+                    <th class="w-32 p-3 text-sm font-medium text-left">Proof</th>
+                    <th class="w-48 p-3 text-sm font-medium text-left whitespace-nowrap">Transaction Date</th>
+                    <th class="w-20 p-3 text-sm font-medium text-left">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for deposit_history in deposit_h %}
+                  <tr class="bg-gray-50">
+                    <td class="p-3 text-sm text-gray-700">{{ deposit_history.coin }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.package }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.company_wallet_address }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.amount }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.proof }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.transaction_date }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      <span class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">{{ deposit_history.status }}</span>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row-span-4">
+
+        <h1 class="font-medium text-xl mb-5">Withdraw History</h1>
+        <div class="overflow-auto rounded-lg shadow">
+            <table class="w-full">
+                <thead class="bg-gray-50 border-b-2 border-t-2 border-gray-200">
+                  <tr class="bg-white">
+                    <th class="w-32 p-3 text-sm font-medium text-left">Coin</th>
+                    <th class="w-48 p-3 text-sm font-medium text-left">Wallet Address</th>
+                    <th class="w-32 p-3 text-sm font-medium text-left">Amount</th>
+                    <th class="w-32 p-3 text-sm font-medium text-left">Transaction Date</th>
+                    <th class="w-20 p-3 text-sm font-medium text-left">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for withdraw_history in withdraw_h %}
+                  <tr class="bg-gray-50">
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ withdraw_history.coin }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ withdraw_history.wallet_address }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ withdraw_history.amount }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ withdraw_history.transaction_date }}</td>
+                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      <span class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">{{ withdraw_history.status }}</span>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
