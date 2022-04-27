@@ -9,7 +9,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),
     path("docs/", include_docs_urls(title="Avalog API")),
-    path("invest/", include("investments.urls")),
+    path("dashboard/invest/", include("investments.urls")),
     path("transactions/", include("transactions.urls")),
     path("contents/", include("contents.urls")),
 ]
