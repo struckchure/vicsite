@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Invest | Dashboard{% endblock title %}
+
+{% block content %}
+<div class="h-[80vh] bg-slate-50/100">
+
+                    
+    <p class="text-center pt-5">The following are list of investments</p>
+
+    <!-- card wrapper  -->
+    <div class="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-10 mt-20 px-4">
+
+        {% for packages in package %}
+        <div class="bg-white shadow-md flex justify-between flex-col h-64 items-center rounded-md py-10 sans-serif nunito">
+
+            <h1 class="font-medium text-[#6675FF]">{{ packages.name }}</h1>
+            <div class="text-center font-semibold">
+                <p>Maximum Deposit {{ maximum_stake }}</p>
+                <p>Minimum Deposit {{ minimum_stake }}</p>
+                <p>{{ roi }} ROI</p>
+                <p>Duration {{ duration }}</p>
+            </div>
+
+            <div>
+                <Button class="bg-[#6675FF] rounded-md py-1.5 px-4 font-medium text-white">Invest</Button>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock content %}

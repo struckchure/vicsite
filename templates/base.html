@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Menu</title>
-    <link href="/public/styles.css" rel="stylesheet">
+    <title>{% block title %}Home | Dashboard{% endblock title %}</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
     <!-- Parent wrapper -->
@@ -122,9 +122,9 @@
             <!-- Content -->
             <div class="px-6 pt-6 2xl:container">
 
-                <div class="rounded-xl h-[80vh] border-2 bg-slate-50/100">
-
-                </div>
+                {% block content %}
+                
+                {% endblock content %}
             </div>
         </div> 
     <!-- </div> -->
