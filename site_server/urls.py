@@ -4,14 +4,16 @@ from django.conf import settings
 from django.urls import path, include
 from rest_framework.documentation import include_docs_urls
 
+from site_server.views import ChartView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),
     path("docs/", include_docs_urls(title="Avalog API")),
-    path("dashboard/invest/", include("investments.urls")),
+    path("invest/", include("investments.urls")),
     path("transactions/", include("transactions.urls")),
     path("contents/", include("contents.urls")),
+    path("dashboard/charts/", ChartView.as_view(), name="charts"),
 ]
 
 if settings.DEBUG:
