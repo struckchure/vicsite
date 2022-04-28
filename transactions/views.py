@@ -1,6 +1,8 @@
 from django.views.generic import ListView, CreateView, TemplateView
+from accounts.models import Balance
 from transactions.models import Deposit, Withdraw
 from investments.models import Investment
+from transactions.forms import WithdrawForm, DepositForm
 # from accounts.models import CustomUser
 
 
@@ -10,8 +12,9 @@ class DepositView(CreateView):
     """
 
     model = Deposit
+    form_class = DepositForm
     template_name = "transactions/deposit.html"
-    fields = ["user", "coin", "package", "company_wallet_address", "amount", "proof", "transactions_date", "status",]
+
 
 class TransactionHistoryView(TemplateView):
     """
@@ -32,8 +35,12 @@ class WithdrawView(CreateView):
     """
 
     model = Withdraw
-    fields = ["user", "coin", "wallet_address", "amount", "transaction_date", "status",]
+    form_class = WithdrawForm
     template_name = "transactions/withdrawal.html"
+    
+    # extra_context = {
+    #     "wallet_bal": Balance.objects.all()
+    # }
 
 
 

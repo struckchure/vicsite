@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home | Dashboard{% endblock title %}
+
+{% block content %}
+<div class="bg-white">
+
+    <!-- card  -->
+
+    <div class="flex justify-between font-semibold">
+        <div class="bg-[#DDF6F8] px-10 py-9 text-center">
+            <p>Wallet Balance</p>
+            <p class="text-lg font-medium">${{ wallet_bal.balance }}</p>
+        </div>
+
+        <div class="bg-[#FEEED7] px-10 py-9 text-center">
+            <p>Maturity Date</p>
+            <p class="text-lg font-medium">{{ duedate.date }}</p>
+        </div>
+
+        <div class="bg-[#E5E2FF] px-10 py-9 text-center">
+            <p>Last Invested Amount</p>
+            <p class="text-lg font-medium">${{ amount_invested.amt }}</p>
+        </div>
+
+
+    </div>
+
+    <!-- Graph -->
+    <div>
+        <div class="overflow-hidden">
+            <div class="py-3 px-5 bg-white font-bold text-lg text-center">Monthly Deposit Stats</div>
+            <canvas class="p-10" id="chartBar"></canvas>
+          </div>
+          
+          <!-- Required chart.js -->
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          
+          <!-- Chart bar -->
+          <script>
+            const labelsBarChart = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+            ];
+            const dataBarChart = {
+              labels: labelsBarChart,
+              datasets: [
+                {
+                  label: "Total Monthly Deposit",
+                  backgroundColor: "hsl(252, 82.9%, 67.8%)",
+                  borderColor: "hsl(252, 82.9%, 67.8%)",
+                  data: [0, 10, 5, 2, 20, 30, 45],
+                },
+              ],
+            };
+          
+            const configBarChart = {
+              type: "bar",
+              data: dataBarChart,
+              options: {},
+            };
+          
+            var chartBar = new Chart(
+              document.getElementById("chartBar"),
+              configBarChart
+            );
+          </script>
+    </div>
+
+    <!-- Table  -->
+    <div class="row-span-4">
+
+      <h1 class="font-medium text-xl mb-5">Recent Deposit</h1>
+      <div class="overflow-auto rounded-lg shadow">
+          <table class="w-full">
+              <thead class="bg-gray-50 border-b-2 border-t-2 border-gray-200">
+                <tr class="bg-white">
+                  <th class="w-32 p-3 text-sm font-medium text-left">Coin</th>
+                  <th class="w-32 p-3 text-sm font-medium text-left">Package</th>
+                  <th class="w-48 p-3 text-sm font-medium text-left">Company_wallet_address</th>
+                  <th class="w-32 p-3 text-sm font-medium text-left">Amount</th>
+                  <th class="w-32 p-3 text-sm font-medium text-left">Proof</th>
+                  <th class="w-48 p-3 text-sm font-medium text-left whitespace-nowrap">Transaction Date</th>
+                  <th class="w-20 p-3 text-sm font-medium text-left">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for deposit_history in deposit_h %}
+                <tr class="bg-gray-50">
+                  <td class="p-3 text-sm text-gray-700">{{ deposit_history.coin }}</td>
+                  <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.package }}</td>
+                  <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.company_wallet_address }}</td>
+                  <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.amount }}</td>
+                  <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.proof }}</td>
+                  <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.transaction_date }}</td>
+                  <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <span class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">{{ deposit_history.status }}</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+
+</div>
+{% endblock content %}

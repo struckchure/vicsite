@@ -3,8 +3,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path, include
 from rest_framework.documentation import include_docs_urls
-
-from site_server.views import ChartView
+from site_server.views import ChartView, DashboardHomeView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -13,6 +12,7 @@ urlpatterns = [
     path("invest/", include("investments.urls")),
     path("transactions/", include("transactions.urls")),
     path("contents/", include("contents.urls")),
+    path("", DashboardHomeView.as_view(), name="home"),
     path("dashboard/charts/", ChartView.as_view(), name="charts"),
 ]
 
