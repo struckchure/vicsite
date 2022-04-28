@@ -41,12 +41,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     # 3rd Party
-    "rest_framework",
-    "rest_framework.authtoken",
-    "djoser",
     "corsheaders",
     "cloudinary",
     "ckeditor",
+    "allauth",
+    "allauth.account",
     # Local Apps
     "accounts.apps.AccountsConfig",
     "transactions.apps.TransactionsConfig",
@@ -67,9 +66,10 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 SITE_ID = 1
 
-# AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',
-# ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
@@ -77,10 +77,6 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
         # 'rest_framework.permissions.IsAuthenticated',
     ],
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
-    ],
-    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
 }
 
 
