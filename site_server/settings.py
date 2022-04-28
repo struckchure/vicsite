@@ -71,6 +71,13 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+# Django AllAuth
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS =True
+# ACCOUNT_SIGNUP_FORM_CLASS 
+
+
+#############
+
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
     "DEFAULT_PERMISSION_CLASSES": [

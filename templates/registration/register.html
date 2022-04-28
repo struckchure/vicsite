@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | AvaloqsAssets</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="h-screen flex items-center justify-self-center">
+
+        <section class="bg-white rounded-md drop-shadow-md p-6 w-10/12 max-w-4xl mx-auto my-auto"> 
+            <div class="h-32 grid justify-center">
+                <img src="/public/img/logo-img.png" alt="" >
+            </div>
+
+            <form>
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 font-medium">
+
+                    <div>
+                        <label class="text-gray-700" for="firstname">Firstname</label>
+                        <input type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Firstname">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="lastname">Lastname</label>
+                        <input type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Lastname">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="phone">Phone</label>
+                        <input type="tel" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Phone Number">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="email">Email</label>
+                        <input type="email" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Email">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="occupation">Occupation</label>
+                        <input placeholder="Select your occupation" type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="Address">Address</label>
+                        <input placeholder="Enter Address" type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30">
+                    </div>
+                    
+                    <div>
+                        <label class="text-gray-700" for="password1">Password</label>
+                        <input placeholder="Enter Password" type="password" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30">
+                    </div>
+                    <div>
+                        <label class="text-gray-700" for="password2">Confirm Password</label>
+                        <input placeholder="Enter Password" type="password" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30">
+                    </div>
+
+                </div>
+                <div class="grid pt-4 mt-2 justify-center">
+                    <button class="px-6 py-2 bg-gray-700 rounded-md text-white font-medium focus:outline-none focus:bg-gray-600 hover:bg-gray-600 w-full">Submit</button>
+                </div>
+            </form>
+        </section>
+
+    </div>
+</body>
+</html>
