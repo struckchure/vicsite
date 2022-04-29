@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from accounts.models import DueDate, AmountInvested, Contact, CustomUser, Balance, CoinAddress, Coin, Profilepic
 from accounts.forms import CustomUserChangeForm, CustomUserCreationForm
 
@@ -9,7 +10,7 @@ class CustomUserAdmin(UserAdmin):
     model = CustomUser
 
 
-admin.site.register(CustomUser,  CustomUserAdmin)
+admin.site.register(CustomUser)
 admin.site.register(Balance)
 admin.site.register(Coin)
 admin.site.register(CoinAddress)

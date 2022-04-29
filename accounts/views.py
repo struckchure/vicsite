@@ -2,15 +2,17 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
 from allauth.account.views import SignupView, LoginView
 from accounts.models import Contact
-from accounts.forms import CustomSignupForm
+from accounts.forms import CustomUserCreationForm, CustomLoginForm
 
 
 # Create your views here.
-class CustomLoginForm(LoginView):
+class CustomLoginView(LoginView):
+    form_class = CustomLoginForm
+    success_url = reverse_lazy("home")
     template_name = "registration/login.html"
 
 class CustomSignupView(SignupView):
-    form_class = CustomSignupForm
+    form_class = CustomUserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/register.html"
 

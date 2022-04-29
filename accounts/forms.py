@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from django.db import models, transaction
 from django.forms import ModelChoiceField
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from allauth.account.forms import LoginForm, SignupForm
 from accounts.models import CustomUser
 
 
@@ -10,8 +11,11 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = UserCreationForm.Meta.fields + (
+        fields = (
+            "firstname",
+            "lastname",
             "occupation",
+            "email",
             "phone",
             "sex",
         )
@@ -29,18 +33,45 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['password1'].widget.attrs.update({'class': 'block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30'})
         self.fields['password2'].widget.attrs.update({'class': 'block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30'})
 
+    def save(self, request):
+        user = super(CustomUserCreationForm, self).save(request)
+
+        user.firstname = self.cleaned_data['firstname']
+        user.lastname = self.cleaned_data['lastname']
+        user.occupation = self.cleaned_data['occupation']
+        user.email = self.cleaned_data['email']
+        user.phone = self.cleaned_data['phone']
+        user.sex = self.cleaned_data['sex']
+        user.save()
+        return user
+
+    # Link to code snipppet
+    # https://www.geeksforgeeks.org/python-extending-and-customizing-django-allauth/
+
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = UserChangeForm.Meta.fields
-
-class CustomSignupForm(CustomUserCreationForm):
-
-    class Meta:
-        model = CustomUser
-        fields = CustomUserCreationForm.Meta.fields + (
-            'sex',
-            'occupation',
-            'phone',
+        fields = (
+            "firstname",
+            "lastname",
+            "occupation",
+            "email",
+            "phone",
+            "sex",
         )
+
+class CustomLoginForm(LoginForm):
+
+    def __init__(self, *args, **kwargs):
+        super(CustomLoginForm, self).__init__(*args, **kwargs)
+
+        self.fields['login'].widget.attrs.update({'class': 'block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30', 'placeholder': 'Enter your email address here', 'name': 'login'})
+        self.fields['password'].widget.attrs.update({'class': 'block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30'})
+
+class CustomSignupForm(SignupForm):
+    
+    class Meta:
+        model = CustomUser 
+        
+

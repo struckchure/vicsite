@@ -56,6 +56,12 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True
+
 # EMAIL CONFIG
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -73,12 +79,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Django AllAuth
-
-# ACCOUNT_SIGNUP_FORM_CLASS 
-
 ACCOUNT_FORM = {
-    # 'login': 'accounts.forms.MyCustomLoginForm',
-    'signup': 'site_server.accounts.forms.CustomUserCreationForm',
+    'signup': 'accounts.forms.CustomSignupForm',
 }
 
 #############
@@ -199,5 +201,5 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CLOUDINARY_URL= cfg("CLOUDINARY_URL")
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'login'
+# LOGIN_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'login'
