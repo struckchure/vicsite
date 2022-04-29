@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "ckeditor",
     "allauth",
     "allauth.account",
+    "allauth.socialaccount",
     # Local Apps
     "accounts.apps.AccountsConfig",
     "transactions.apps.TransactionsConfig",
@@ -72,9 +73,13 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Django AllAuth
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS =True
+
 # ACCOUNT_SIGNUP_FORM_CLASS 
 
+ACCOUNT_FORM = {
+    # 'login': 'accounts.forms.MyCustomLoginForm',
+    'signup': 'site_server.accounts.forms.CustomUserCreationForm',
+}
 
 #############
 

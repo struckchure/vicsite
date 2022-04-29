@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
 
         <section class="bg-white rounded-md drop-shadow-md p-6 w-10/12 max-w-4xl mx-auto my-auto"> 
             <div class="h-32 grid justify-center">
-                <img src="/public/img/logo-img.png" alt="" >
+                <img src="{% static 'img/logo-img.png' %}" alt="" >
             </div>
 
             <form>
@@ -20,41 +21,49 @@
 
                     <div>
                         <label class="text-gray-700" for="firstname">Firstname</label>
-                        <input type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Firstname">
+                        <!-- <input type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Firstname"> -->
+                        {{ form.firstname }}
                     </div>
 
                     <div>
                         <label class="text-gray-700" for="lastname">Lastname</label>
-                        <input type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Lastname">
+                        <!-- <input type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Lastname"> -->
+                        {{ form.lastname  }}
                     </div>
 
                     <div>
                         <label class="text-gray-700" for="phone">Phone</label>
-                        <input type="tel" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Phone Number">
+                        <!-- <input type="tel" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Phone Number"> -->
+                        {{ form.phone }}
                     </div>
 
                     <div>
                         <label class="text-gray-700" for="email">Email</label>
-                        <input type="email" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Email">
+                        <!-- <input type="email" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Email"> -->
+                        {{ form.email }}
                     </div>
 
                     <div>
-                        <label class="text-gray-700" for="occupation">Occupation</label>
-                        <input placeholder="Select your occupation" type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30">
-                    </div>
-
-                    <div>
-                        <label class="text-gray-700" for="Address">Address</label>
-                        <input placeholder="Enter Address" type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30">
+                        <label class="text-gray-700" for="occupation">Sex</label>
+                        <!-- <input placeholder="Select your occupation" type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30"> -->
+                        {{ form.sex }}
                     </div>
                     
                     <div>
-                        <label class="text-gray-700" for="password1">Password</label>
-                        <input placeholder="Enter Password" type="password" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30">
+                        <label class="text-gray-700" for="occupation">Occupation</label>
+                        <!-- <input placeholder="Select your occupation" type="text" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30"> -->
+                        {{ form.occupation }}
+                    </div>
+                    
+                    <div>
+                        <label class="text-gray-700" for="password">Password</label>
+                        <!-- <input placeholder="Enter Password" type="password" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30"> -->
+                        {{ form.password1 }}
                     </div>
                     <div>
-                        <label class="text-gray-700" for="password2">Confirm Password</label>
-                        <input placeholder="Enter Password" type="password" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30">
+                        <label class="text-gray-700" for="confirmpassword">Confirm Password</label>
+                        <!-- <input placeholder="Enter Password" type="password" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30"> -->
+                        {{ form.password2 }}
                     </div>
 
                 </div>
