@@ -3,12 +3,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path, include
 from site_server.views import ChartView, DashboardHomeView
-from accounts.views import CustomSignupView, CustomLoginView
+# from accounts.views import CustomSignupView, CustomLoginView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/signup/", CustomSignupView.as_view(), name="signup"),
-    path("accounts/login/", CustomLoginView.as_view(), name="login"),
+    # path("accounts/signup/", CustomSignupView.as_view(), name="signup"),
+    # path("accounts/login/", CustomLoginView.as_view(), name="login"),
     path('accounts/', include('allauth.urls')),
     path("accounts/", include("accounts.urls")),
     path("invest/", include("investments.urls")),
