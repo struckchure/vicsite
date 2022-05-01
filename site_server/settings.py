@@ -79,9 +79,11 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Django AllAuth
-ACCOUNT_FORM = {
-    'signup': 'accounts.forms.CustomSignupForm',
-}
+# # ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.CustomSignupForm'
+# ACCOUNT_FORM = {
+#     'signup': 'accounts.forms.CustomSignupForm',
+#     # 'login': 'accounts.forms.CustomLoginForm',
+# }
 
 #############
 
@@ -202,4 +204,4 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 CLOUDINARY_URL= cfg("CLOUDINARY_URL")
 
 LOGIN_REDIRECT_URL = 'home'
-# LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'login'

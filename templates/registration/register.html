@@ -10,6 +10,11 @@
 </head>
 <body>
     <div class="h-screen flex items-center justify-self-center">
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.errors }}
+            </div>
+        {% endif %} 
 
         <section class="bg-white rounded-md drop-shadow-md p-6 w-10/12 max-w-4xl mx-auto my-auto"> 
             <div class="h-32 grid justify-center">

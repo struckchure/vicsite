@@ -1,20 +1,30 @@
 from django.urls import reverse_lazy
+from django.http import request, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView
 from allauth.account.views import SignupView, LoginView
 from accounts.models import Contact
-from accounts.forms import CustomUserCreationForm, CustomLoginForm, CustomSignupForm
+from accounts.forms import CustomLoginForm, CustomSignupForm
 
 
 # Create your views here.
-# class CustomLoginView(LoginView):
-#     form_class = CustomLoginForm
-#     success_url = reverse_lazy("home")
-#     template_name = "registration/login.html"
+class CustomLoginView(LoginView):
+    form_class = CustomLoginForm
+    template_name = "registration/login.html"
+    success_url = reverse_lazy("home")
 
-# class CustomSignupView(SignupView):
-#     form_class = CustomSignupForm
-#     success_url = reverse_lazy("login")
-#     template_name = "registration/register.html"
+def SignupView(request):
+    if request.method == "POST":
+        form = CustomSignupForm(request.POST)
+
+        if form.is_valid():
+            form.save(request)
+
+            return HttpResponseRedirect(reverse_lazy("login"))
+            # return reverse_lazy("login")
+    else:
+        form = CustomSignupForm()
+    return render(request, "registration/register.html", {"form": form})
 
 class ContactView(CreateView):
     ''' Contact us Form '''
