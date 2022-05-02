@@ -1,8 +1,13 @@
 from django.views.generic import ListView, CreateView, TemplateView
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.http import request, HttpResponseRedirect, HttpResponse
+
 from accounts.models import Balance
 from transactions.models import Deposit, Withdraw
 from investments.models import Investment
 from transactions.forms import WithdrawForm, DepositForm
+from accounts.models import Coin, CoinAddress
 # from accounts.models import CustomUser
 
 
@@ -15,6 +20,16 @@ class DepositView(CreateView):
     form_class = DepositForm
     template_name = "transactions/deposit.html"
 
+# def DepositView(request):
+    # if request.method == "POST":
+        # form = DepositForm(request.POST)
+# 
+        # if form.is_valid():
+            # form.save(request)
+            # return HttpResponse("It is saved")
+    # else:
+        # form = DepositForm()
+    # # return render(request, "transactions/deposit.html", {"form": form})
 
 class TransactionHistoryView(TemplateView):
     """
@@ -37,11 +52,19 @@ class WithdrawView(CreateView):
     model = Withdraw
     form_class = WithdrawForm
     template_name = "transactions/withdrawal.html"
+    success_url = reverse_lazy("home")
     
     # extra_context = {
-    #     "wallet_bal": Balance.objects.all()
+    #     "coin": Coin.objects.all(),
+    #     "coin_ad": CoinAddress.objects.all(),
     # }
 
+# def WithdrawView(request):
+#     if request.method == "POST":
+        
+#         form = WithdrawForm(request.POST or None)
+#         if form.is_valid():
+#             form.save(request)
 
 
 

@@ -1,8 +1,8 @@
+from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.http import request, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView
-from allauth.account.views import SignupView, LoginView
 from accounts.models import Contact
 from accounts.forms import CustomLoginForm, CustomSignupForm
 
@@ -19,10 +19,13 @@ def SignupView(request):
 
         if form.is_valid():
             form.save(request)
+            # print("form is saved")
 
             return HttpResponseRedirect(reverse_lazy("login"))
             # return reverse_lazy("login")
+            # return HttpResponse("It is saved")
     else:
+        # print("Form is not saved")
         form = CustomSignupForm()
     return render(request, "registration/register.html", {"form": form})
 

@@ -9,25 +9,20 @@
 {% block content %}
 <div class="rounded-xl h-[80vh] font-medium bg-slate-50/100">
     <section class="p-20">
-        <form action="">
+        <form action="{% url 'withdraw' %}" method="POST">
+            {% csrf_token %}
+
             <div class="grid grid-cols-1 gap-10 sm:grid-cols-2">
 
 
                 <div>
                     <label class="text-gray-700" for="cointype">Coin Type</label>
                     {{ form.coin }}
-                    <!-- <select class="block w-full border border-blue-400 py-4 px-4 mt-3 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30" name="cointype" id="">
-                        <option value="btc">Bitcoin</option>
-                        <option value="eth">Ethereum</option>
-                        <option value="trx">Tron</option>
-                        <option value="xrp">Ripple</option>
-                    </select> -->
                 </div>
 
                 <div>
                     <label class="text-gray-700" for="walletaddress">Wallet Address</label>
                     {{ form.wallet_address }}
-                    <!-- <input class="block w-full border border-blue-400 py-4 mt-3 px-4 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30" type="text" id="country" name="walletaddress" value="jakjaergjqergjiernqjrtbjert" readonly> -->
                 </div>
 
                 {% comment %} <div class="">
@@ -39,7 +34,6 @@
                 <div>
                     <label class="text-gray-700" for="amount">Amount</label>
                     {{ form.amount }}
-                    <!-- <input class="block w-full border border-blue-400 py-4 mt-3 px-4 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30" type="number" name="amount" id="" placeholder="1000.000"> -->
                 </div>
 
                 <div>

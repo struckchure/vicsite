@@ -13,6 +13,11 @@
 
 
         <section class="bg-white rounded-md shadow-md w-96 mx-auto  my-auto p-6"> 
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
             <div class="h-32 grid justify-center">
                 <img src="{% static 'img/logo-img.png' %}" alt="" >
             </div>
@@ -24,7 +29,7 @@
 
                     <div>
                         <label class="text-gray-700" for="id_login">Username</label>
-                        {{ form.login }}
+                        {{ form.username }}
                     </div>
                     
                     <div>

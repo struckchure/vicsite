@@ -44,9 +44,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "cloudinary",
     "ckeditor",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
+
     # Local Apps
     "accounts.apps.AccountsConfig",
     "transactions.apps.TransactionsConfig",
@@ -73,10 +71,10 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 SITE_ID = 1
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# ]
 
 # Django AllAuth
 # # ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.CustomSignupForm'
