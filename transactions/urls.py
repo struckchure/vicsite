@@ -6,7 +6,7 @@ from transactions.views import (
 )
 
 urlpatterns = [
-    path("deposit/", DepositView.as_view(), name="deposit"),
+    path("deposit/", DepositView, name="deposit"),
     path("", TransactionHistoryView.as_view(), name="transactions"),
-    path("withdraw/", WithdrawView.as_view(), name="withdraw"),
+    path("withdraw/", WithdrawView, name="withdraw"),
 ]

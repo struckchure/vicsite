@@ -1,13 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 from investments.models import Investment, Package
 from accounts.models import CustomUser
 
 
-class InvestView(ListView):
+class InvestView(LoginRequiredMixin, ListView):
     """
     This class displays the investment form
     """
+    login_url = reverse_lazy("login")
     model = Investment
     template_name = "investments/invest.html"
     # success_url = reverse_lazy("dashboard")
