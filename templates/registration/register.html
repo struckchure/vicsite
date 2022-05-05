@@ -9,15 +9,54 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
+    {% if form.errors %}
+    <!-- Error Message  -->
+    <div x-data="{ showAlert: true }" class="grid justify-end w-auto mt-5 absolute top-0 right-0">
+        <div
+          x-cloak
+          x-show="showAlert"
+          x-init="setTimeout(() => showAlert = false, 3000)"
+          class="relative p-6 overflow-hidden bg-white shadow-md text-red-600 font-medium rounded-lg"
+          role="alert"
+        >
+          <span class="absolute inset-x-0 top-0 h-1.5 bg-red-300"></span>
+          {% if form.errors.name %}
+          <div>
+            <strong class="text-sm font-medium">{{ form.errors.name }}</strong>
+          </div>
+          {% elif form.errors.email %}
+          <div>
+            <strong class="text-sm font-medium">{{ form.errors.email }}</strong>
+          </div>
+          {% elif form.errors.password %}
+          <div>
+            <strong class="text-sm font-medium">{{ form.errors.password }}</strong>
+          </div>
+          {% elif form.errors.firstname %}
+          <div>
+            <strong class="text-sm font-medium">{{ form.errors.firstname }}</strong>
+          </div>
+          {% elif form.errors.lastname %}
+          <div>
+            <strong class="text-sm font-medium">{{ form.errors.lastname }}</strong>
+          </div>
+          {% elif form.errors.phone %}
+          <div>
+            <strong class="text-sm font-medium">{{ form.errors.phone }}</strong>
+          </div>
+          {% elif form.non_field_errors %}
+          <div>
+            <strong class="text-sm font-medium">{{ form.non_field_errors }}</strong>
+          </div>
+          {% endif %}
+
+        </div>
+    </div>
+    {% endif %}
     <div class="h-screen flex items-center justify-self-center">
         
 
-        <section class="bg-white rounded-md drop-shadow-md p-6 w-10/12 max-w-4xl mx-auto my-auto"> 
-        {% if form.errors %}
-            <div class="alert alert-danger">
-                {{ form.errors }}
-            </div>
-        {% endif %} 
+        <section class="bg-white rounded-md drop-shadow-md p-6 w-10/12 max-w-4xl mx-auto my-auto">  
             <div class="h-32 grid justify-center">
                 <img src="{% static 'img/logo-img.png' %}" alt="" >
             </div>
@@ -82,5 +121,8 @@
         </section>
 
     </div>
+
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 </html>

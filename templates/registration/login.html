@@ -9,15 +9,38 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
+    {% if form.errors %}
+    <!-- Error Message -->
+    <div x-data="{ showAlert: true }" class="grid w-auto mt-5 absolute top-0 right-0">
+        <div
+            x-cloak
+            x-show="showAlert"
+            x-init="setTimeout(() => showAlert = false, 3000)"
+            class="relative p-6 overflow-hidden shadow-md text-red-600 text-sm bg-white rounded-lg"
+            role="alert"
+        >
+            <span class="absolute inset-x-0 top-0 h-1.5 bg-red-300"></span>
+            
+            {% if forms.errors.username %}
+            <strong>{{ form.errors.name }}</strong>
+            
+            {% elif forms.errors.password %}
+            <strong>{{ form.errors.password }}</strong>
+            
+            {% elif form.non_field_errors %}
+            <strong>{{ form.non_field_errors }}</strong>
+
+            {% endif %}
+
+            
+        </div>
+    </div>
+    
+    {% endif %}
     <div class="h-screen grid items-center justify-center">
 
 
         <section class="bg-white rounded-md shadow-md w-96 mx-auto  my-auto p-6"> 
-            {% if form.errors %}
-                <div class="alert alert-danger">
-                    {{ form.errors }}
-                </div>
-            {% endif %}
             <div class="h-32 grid justify-center">
                 <img src="{% static 'img/logo-img.png' %}" alt="" >
             </div>
@@ -50,5 +73,7 @@
             <p class="font-normal pt-3">Don't have an account? <a href="{% url 'signup' %}" class="text-sky-500">Register</a></p>
         </section>
     </div>
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 </html>
