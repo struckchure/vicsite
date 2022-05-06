@@ -14,24 +14,13 @@ class InvestView(LoginRequiredMixin, ListView):
     template_name = "investments/invest.html"
     # success_url = reverse_lazy("dashboard")
 
-    extra_context = {
-        "package": Package.objects.all()
-    }
 
-    # def post(self, request):
-    #     user = get_object_or_404(CustomUser, pk=request.user.pk)
-    #     serializer = self.serializer_class(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.validated_data["user"]= user
-    #     serializer.save()
-    #     return Response({
-    #         "message": "success",
-    #     }, status=status.HTTP_200_OK)
-
-# class PackageView(ListView):
-#     """
-#     This class displays the Investment Packages
-#     """
-
-#     model = Pa
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {
+            "user": self.request.user,
+            "package": Package.objects.all(),
+        }
+        return context
+    
 

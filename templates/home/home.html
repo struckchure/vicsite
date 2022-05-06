@@ -9,18 +9,18 @@
 
     <!-- card  -->
 
-    <div class="flex justify-between font-semibold">
-        <div class="bg-[#DDF6F8] px-10 py-9 text-center">
+    <div class="lg:flex justify-between md:flex md:w-auto font-semibold">
+        <div class="bg-[#DDF6F8] px-10 py-9 text-center rounded-md">
             <p>Wallet Balance</p>
             <p class="text-lg font-medium">${{ wallet_bal.balance }}</p>
         </div>
 
-        <div class="bg-[#FEEED7] px-10 py-9 text-center">
+        <div class="bg-[#FEEED7] px-10 py-9 text-center rounded-md">
             <p>Maturity Date</p>
             <p class="text-lg font-medium">{{ duedate.date }}</p>
         </div>
 
-        <div class="bg-[#E5E2FF] px-10 py-9 text-center">
+        <div class="bg-[#E5E2FF] px-10 py-9 text-center rounded-md">
             <p>Last Invested Amount</p>
             <p class="text-lg font-medium">${{ amount_invested.amt }}</p>
         </div>

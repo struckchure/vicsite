@@ -2,11 +2,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 # from django.http import request
-from accounts.models import Balance, DueDate, AmountInvested
+from accounts.models import Balance, DueDate, AmountInvested, CustomUser
 
 class ChartView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy("login")
     template_name = "charts.html"
+
+    
 
 class DashboardHomeView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy("login")

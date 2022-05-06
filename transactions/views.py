@@ -49,6 +49,7 @@ class TransactionHistoryView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context = {
+            "user": self.request.user,
             "withdraw_h": Withdraw.objects.filter(user=self.request.user),
             "deposit_h": Deposit.objects.filter(user=self.request.user),
             "invest_h": Investment.objects.filter(user=self.request.user) 
@@ -82,7 +83,9 @@ def WithdrawView(request):
             return HttpResponseRedirect(reverse_lazy("withdraw"))
     else:
         form = WithdrawForm()
-    return render(request, "transactions/withdrawal.html", {"form": form})
+    return render(request, "transactions/withdrawal.html", {
+        "form": form,
+    })
         
 
 
