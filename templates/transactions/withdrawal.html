@@ -6,6 +6,38 @@
 
 {% block pagetitle %}Withdraw{% endblock pagetitle %}
 
+{% block e_rrors %}
+{% if form.errors %}
+<div x-data="{ showAlert: true }" class="grid w-auto mt-5 absolute top-0 right-0">
+    <div
+        x-cloak
+        x-show="showAlert"
+        x-init="setTimeout(() => showAlert = false, 3000)"
+        class="relative p-6 overflow-hidden shadow-md text-red-600 text-sm bg-white rounded-lg"
+        role="alert"
+    >
+        <span class="absolute inset-x-0 top-0 h-1.5 bg-red-300"></span>
+        
+        {% if forms.errors.amount %}
+        <strong>{{ form.errors.amount }}</strong>
+        
+        {% elif forms.errors.wallet_address %}
+        <strong>{{ form.errors.wallet_address }}</strong>
+
+        {% elif forms.errors.coin %}
+        <strong>{{ form.errors.coin }}</strong>
+        
+        {% elif form.non_field_errors %}
+        <strong>{{ form.non_field_errors }}</strong>
+
+        {% endif %}
+
+        
+    </div>
+</div>
+{% endif %}
+{% endblock e_rrors %}
+
 {% block content %}
 <div class="rounded-xl h-[80vh] font-medium bg-slate-50/100">
     <section class="p-20">
@@ -49,6 +81,41 @@
 
             </div>
         </form>
+
+        {% if message.success %}
+        <!-- Modal begins here -->
+
+        <div class="flex items-center justify-center mt-80" x-data="{ open: true }">
+            <!-- <button class="bg-gray-400 rounded-full border-none px-4 py-2" >Open Modal</button> -->
+    
+            <div class="fixed w-full h-full top-0 left-0 flex items-center justify-center" 
+            x-cloak 
+            x-show="open"
+            x-init="setTimeout(() => showAlert = false, 3000)"
+            role="alert"
+            >
+    
+                <div class="w-full h-full bg-gray-500 opacity-40 fixed"></div>
+                <div class="relative bg-white p-8 mx-auto rounded-xl md:w-3/4 lg:w-3/6" @click.outside="open = false">
+                    <div class="h-32 grid justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-96 fill-[#27AE60]" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                          </svg>
+                    </div>
+    
+                    <div class="grid justify-center font-bold text-[#6675FF]">
+                        <h5>Transaction Successful</h5>
+                        <!-- <h5>Successful</h5> -->
+                    </div>
+    
+                    <div class="grid justify-center">
+                        <p class="font-semibold text-center">{{ message.success }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
     </section>
 </div>
 {% endblock content %}

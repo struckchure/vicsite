@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, CreateView, TemplateView
@@ -26,10 +27,12 @@ from accounts.models import CustomUser
 def DepositView(request):
     if request.method == "POST":
         form = DepositForm(request.POST)
+        message = "You have successfully placed a Deposit request.  Your account balance will be credited within the next 24 hours."
 
         if form.is_valid():
             form.save(request)
-            return HttpResponse("It is saved")
+            messages.success(request, message)
+            return HttpResponseRedirect(reverse_lazy("deposit"))
     else:
         form = DepositForm()
     return render(request, "transactions/deposit.html", {"form": form})
@@ -72,9 +75,11 @@ class TransactionHistoryView(LoginRequiredMixin, TemplateView):
 def WithdrawView(request):
     if request.method == "POST":
         form = WithdrawForm(request.POST)
+        message = "You have successfully placed a withdraw request.  Your wallet will be credited within the next 24 hours."
         if form.is_valid():
             form.save(request)
-            return HttpResponse("Submitted")
+            messages.success(request, message)
+            return HttpResponseRedirect(reverse_lazy("withdraw"))
     else:
         form = WithdrawForm()
     return render(request, "transactions/withdrawal.html", {"form": form})
