@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Profile | Dashboard{% endblock title %}
+
+{% block pagetitle %}Profile{% endblock pagetitle %}
+
+{% block content %}
+<div class="h-[80vh] grid grid-cols-4 gap-6">
+                    
+    <div class="grid bg-slate-50/100 col-span-3 px-5 pt-10">
+
+        <div>
+
+            <form>
+
+                <!-- fields  -->
+                <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 font-medium">
+
+                    <div>
+                        <label class="text-gray-700" for="fullname">Full Name</label>
+                        <input class="block w-full py-4 mt-3 px-4 focus:outline-none text-gray-500" type="text" id="country" name="walletaddress" value="{{ user.firstname}} {{ user.lastname }}">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="occupation">Occupation</label>
+                        <input class="block w-full py-4 mt-3 px-4 focus:outline-none text-gray-500" type="text" id="country" name="walletaddress" value="{{ user.occupation }}" readonly>
+                    </div>
+
+                    <div class="">
+                        <label class="text-gray-700" for="sex">Sex</label>
+                        <input class="block w-full py-4 px-4 mt-3 focus:outline-none text-gray-500" name="packagecategory" value="{{ user.sex }}" readonly>
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="emailaddress">Email Address</label>
+                        <input class="block w-full py-4 mt-3 px-4 focus:outline-none text-gray-500" type="text" id="country" name="walletaddress" value="{{ user.email }}" readonly>
+                    </div>
+
+                    <div class="">
+                        <label class="text-gray-700" for="availablebalance">Available Balance</label>
+                        <input class="block w-full py-4 mt-3 px-4 bg-gray-300 focus:outline-none" readonly type="text" name="deposit proof" id="" value="{{ bal.balance }}">
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="phonenumber">Phone Number</label>
+                        <input class="block w-full  py-4 mt-3 px-4 text-gray-500" type="text" id="country" name="walletaddress" value="{{ user.phone }}" readonly>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="font-medium mt-10">
+                <a href="{% url 'profile_edit' user.pk %}" class="w-32 text-center text-white font-medium block bg-[#6675FF] py-4 px-4 rounded-md">
+                    Edit
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="grid h-60">
+        <form action="">
+            <img src="{{ pics.img }}" alt="" class="h-36 rounded-full w-36">
+            <!-- <div class=""> -->
+                {% comment %} <input class="block bg-white w-full py-4 mt-3 px-4 rounded-md" type="file" name="upload profile pics" id=""> {% endcomment %}
+            <!-- </div> -->
+        </form>
+    </div>
+</div>
+{% endblock %}

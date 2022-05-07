@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Profile | Dashboard{% endblock title %}
+
+{% block pagetitle %}Profile{% endblock pagetitle %}
+
+{% block e_rrors %}
+    {% if form.errors %}
+        <div x-data="{ showAlert: true }" class="grid w-auto mt-5 absolute top-0 right-0">
+            <div
+                x-cloak
+                x-show="showAlert"
+                x-init="setTimeout(() => showAlert = false, 3000)"
+                class="relative p-6 overflow-hidden shadow-md text-red-600 text-sm bg-white rounded-lg"
+                role="alert"
+            >
+                <span class="absolute inset-x-0 top-0 h-1.5 bg-red-300"></span>
+                
+                {% if form.errors.firstname %}
+                <strong>{{ form.errors.firstname }}</strong>
+                
+                {% elif form.errors.lastname %}
+                <strong>{{ form.errors.lastname }}</strong>
+
+                {% elif form.errors.sex %}
+                <strong>{{ form.errors.sex }}</strong>
+                
+                {% elif form.errors.occupation %}
+                <strong>{{ form.errors.occupation }}</strong>
+
+                {% elif form.errors.email %}
+                <strong>{{ form.errors.email }}</strong>
+
+                {% elif form.errors.phone %}
+                <strong>{{ form.errors.phone }}</strong>
+
+                {% elif form.non_field_errors %}
+                <strong>{{ form.non_field_errors }}</strong>
+
+                {% endif %}
+
+                
+            </div>
+        </div>
+    {% endif %}
+{% endblock e_rrors %}
+
+{% block content %}
+<div class="h-[80vh] grid grid-cols-4 gap-6">
+                    
+    <div class="grid bg-slate-50/100 col-span-3 px-5 pt-10">
+
+        <div>
+
+            <form method="POST" action="{% url 'profile_edit' user.pk %}">
+                {% csrf_token %}
+
+                <!-- fields  -->
+                <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 font-medium">
+
+                    <div>
+                        <label class="text-gray-700" for="firstname">First Name</label>
+                        <!-- <input class="block w-full py-4 mt-3 px-4 focus:outline-none text-gray-500 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30" type="text" id="country" name="walletaddress"> -->
+                        {{ form.firstname }}
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="lastname">Last Name</label>
+                        <!-- <input class="block w-full py-4 mt-3 px-4 focus:outline-none text-gray-500 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30" type="text" id="country" name="walletaddress"> -->
+                        {{ form.lastname }}
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="occupation">Occupation</label>
+                        <!-- <input class="block w-full py-4 mt-3 px-4 text-gray-500 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30" type="text" id="country" name="walletaddress"> -->
+                        {{ form.occupation }}
+                    </div>
+
+                    <div class="">
+                        <label class="text-gray-700" for="sex">Sex</label>
+                        <!-- <select class="block w-full py-4 px-4 mt-3 text-gray-500 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30" name="packagecategory">
+                        </select> -->
+                        {{ form.sex }}
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="emailaddress">Email Address</label>
+                        <!-- <input class="block w-full py-4 mt-3 px-4  text-gray-500 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30" type="text" id="country" name="walletaddress"> -->
+                        {{ form.email }}
+                    </div>
+
+                    <div>
+                        <label class="text-gray-700" for="phonenumber">Phone Number</label>
+                        <!-- <input class="block w-full  py-4 mt-3 px-4 text-gray-500" type="text" id="country" name="walletaddress"> -->
+                        {{ form.phone }}
+                    </div>
+                </div>
+                
+                <div class="font-medium mt-10">
+                    <input class="w-32 text-center text-white font-medium block bg-[#6675FF] py-4 px-4 rounded-md" type="submit" value="Save">
+                    <!-- <button class="w-32 text-center text-white font-medium block bg-[#6675FF] py-4 px-4 rounded-md" type="submit">Save</button> -->
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="grid h-60">
+        <form action="{% url 'profile_edit' user.pk %}">
+            {% csrf_token %}
+            <img src="{{ pics.img }}" alt="" class="h-36 rounded-full w-36">
+            <!-- <div class=""> -->
+                <input class="block bg-white w-full py-4 mt-3 px-4 rounded-md" type="file" name="upload profile pics" id="">
+            <!-- </div> -->
+
+            <div class="font-medium mt-10">
+                <!-- <input class="w-32 text-center text-white font-medium block bg-[#6675FF] py-4 px-4 rounded-md" type="submit" value="Save"> -->
+                <button class="w-32 text-center text-white font-medium block bg-[#6675FF] py-4 px-4 rounded-md" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'js/profile_edit.js' %}"></script>
+{% endblock %}
