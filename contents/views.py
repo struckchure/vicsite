@@ -1,4 +1,5 @@
-from django.views.generic import ListView
+from rest_framework import generics
+from rest_framework.permissions import AllowAny
 from contents.models import (
     Carousel_About,
     Carousel_Home,
@@ -15,77 +16,118 @@ from contents.models import (
     HowToInvest,
     Footer,
 )
+from contents.serializers import (
+    CarouselAboutSerializer,
+    CarouselHomeSerializer,
+    WWASerializer,
+    WWESSerializer,
+    TopExecutiveSerializer,
+    TopExecutiveBodySerializer,
+    OurOfferingSerializer,
+    TestimonialSerializer,
+    TestimonialBodySerializer,
+    AboutUSSerializer,
+    FBSerializer,
+    IGSerializer,
+    HTISerializer,
+    FooterSerializer,
+)
 
 
-class CarouselHomeView(ListView):
+class CarouselHomeView(generics.ListAPIView):
     ''' Contains content for Carousel Section in the home Page '''
 
-    model = Carousel_Home
+    queryset = Carousel_Home.objects.all()
+    serializer_class = CarouselHomeSerializer
+    permission_classes =[AllowAny]
 
-class CarouselAboutView(ListView):
+class CarouselAboutView(generics.ListAPIView):
     ''' Contains content for Carousel Section in the about Page '''
 
-    model = Carousel_About
+    queryset = Carousel_About.objects.all()
+    serializer_class = CarouselAboutSerializer
+    permission_classes =[AllowAny]
 
-class WWAView(ListView):
+class WWAView(generics.ListAPIView):
     ''' Contains decription Data for Who_We_Are Section in the home Page '''
 
-    model = Who_we_are
+    queryset = Who_we_are.objects.all()
+    serializer_class = WWASerializer
+    permission_classes = [AllowAny]
 
-class WWASView(ListView):
+class WWASView(generics.ListAPIView):
     ''' Contains Content for Who_We_Are Section in the home Page '''
 
-    model = Who_we_are_sub
+    queryset = Who_we_are_sub.objects.all()
+    serializer_class = WWESSerializer
+    permission_classes = [AllowAny]
 
-class TopExecutiveView(ListView):
+class TopExecutiveView(generics.ListAPIView):
     ''' Contains description Content for Top Investor Section in the home Page '''
 
-    model = Top_executive
+    queryset = Top_executive.objects.all()
+    serializer_class = TopExecutiveSerializer
+    permission_classes = [AllowAny]
 
-
-class TopExecutiveBodyView(ListView):
+class TopExecutiveBodyView(generics.ListAPIView):
     ''' Contains Content for Top Executive Section in the home Page '''
 
-    model = Top_executive_body
+    queryset = Top_executive_body.objects.all()
+    serializer_class = TopExecutiveBodySerializer
+    permission_classes = [AllowAny]
 
-class OurOfferingView(ListView):
+class OurOfferingView(generics.ListAPIView):
     ''' Contains Content for Our Offering Section in the home Page '''
 
-    model = Our_offering
+    queryset = Our_offering.objects.all()
+    serializer_class = OurOfferingSerializer
+    permission_classes = [AllowAny]
 
-
-class TestimonialView(ListView):
+class TestimonialView(generics.ListAPIView):
     ''' Contains Description for Testimonial Section in the About Page '''
 
-    model = Testimonial
+    queryset = Testimonial.objects.all()
+    serializer_class = TestimonialSerializer
+    permission_classes = [AllowAny]
 
-
-class TestimonialBodyView(ListView):
+class TestimonialBodyView(generics.ListAPIView):
     ''' Contains Content for Testimonial Section in the home Page '''
 
-    model = Testimonial_body
+    queryset = Testimonial_body.objects.all()
+    serializer_class = TestimonialBodySerializer
+    permission_classes = [AllowAny]
 
-class AboutUSView(ListView):
+class AboutUSView(generics.ListAPIView):
     ''' Contains Content for About US Section in the About Page '''
 
-    model = AboutUs
+    queryset = AboutUs.objects.all()
+    serializer_class = AboutUSSerializer
+    permission_classes = [AllowAny]
 
-class FBView(ListView):
+class FBView(generics.ListAPIView):
     ''' Link to Facebook account '''
 
-    model = FacebookLink
+    queryset = FacebookLink.objects.all()
+    serializer_class = FBSerializer
+    permission_classes = [AllowAny]
 
-class IGView(ListView):
+class IGView(generics.ListAPIView):
     ''' Link to Facebook account '''
 
-    model = InstagramLink
+    queryset = InstagramLink.objects.all()
+    serializer_class = IGSerializer
+    permission_classes = [AllowAny]
 
-class HTIView(ListView):
+class HTIView(generics.ListAPIView):
     ''' How to Invest Section '''
 
-    model = HowToInvest
+    queryset = HowToInvest.objects.all()
+    serializer_class = HTISerializer
+    permission_classes = [AllowAny]
 
-class FooterView(ListView):
+class FooterView(generics.ListAPIView):
     ''' Footer Content '''
 
-    model = Footer
+    queryset = Footer.objects.all()
+    serializer_class = FooterSerializer
+    permission_classes = [AllowAny]

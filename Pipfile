@@ -17,6 +17,7 @@ django-environ = "*"
 django-richtextfield = "*"
 django-ckeditor = "*"
 python-decouple = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
