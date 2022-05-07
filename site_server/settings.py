@@ -21,9 +21,8 @@ SECRET_KEY = cfg("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = cfg("DEBUG", cast=bool, default=True)
 
-# ALLOWED_HOSTS = ["backend.avaloqsassets.com"]
+ALLOWED_HOSTS = ["backend.avaloqsassets.com"]
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["vicsites-env.eba-h2gjmify.us-east-1.elasticbeanstalk.com"]
 # ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
 
 private_ip = get_linux_ec2_private_ip()
