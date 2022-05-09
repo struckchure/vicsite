@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 django = "==4.0"
-coreapi = "*"
-pyyaml = "*"
+coreapi = "==2.3.3"
+pyyaml = "==5.1.2"
 gunicorn = "*"
 pillow = "*"
 whitenoise = "*"

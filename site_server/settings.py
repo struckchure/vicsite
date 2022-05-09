@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "cloudinary",
     "ckeditor",
+    "rest_framework",
 
     # Local Apps
     "accounts.apps.AccountsConfig",
@@ -61,13 +62,13 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 
 # EMAIL CONFIG
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = "email-smtp.us-east-1.amazonaws.com"
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-# EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-# EMAIL_USE_TLS = cfg("EMAIL_USE_TLS", cast=bool, default=True)
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "server87.web-hosting.com"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = cfg("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = cfg("EMAIL_HOST_PASSWORD")
+
 
 SITE_ID = 1
 
