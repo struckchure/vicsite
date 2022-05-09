@@ -117,7 +117,11 @@
                     <button class="px-6 py-2 bg-gray-700 rounded-md text-white font-medium focus:outline-none focus:bg-gray-600 hover:bg-gray-600 w-full">Submit</button>
                 </div>
             </form>
-            <p class="font-normal pt-3">Have an account already? <a href="{% url 'login' %}" class="text-sky-500">Login</a></p>
+            <div class="flex space-x-4 text-sky-500 justify-center mt-4">
+              <p><a href="{% url 'signup' %}">Register</a></p>
+              <p><a href="{% url 'login' %}">Login</a></p>
+              <p><a href="{% url 'forgot_password' %}">Forgot Password</a></p>
+          </div>
         </section>
 
     </div>
