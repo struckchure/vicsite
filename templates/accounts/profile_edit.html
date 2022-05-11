@@ -109,7 +109,7 @@
 
 
     <div class="grid h-60">
-        <form action="{% url 'profile_edit' user.pk %}">
+        <form method='POST' action="{% url 'profile_edit' user.pk %}">
             {% csrf_token %}
             <img src="{{ pics.img }}" alt="" class="h-36 rounded-full w-36">
             <!-- <div class=""> -->

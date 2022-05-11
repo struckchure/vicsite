@@ -28,7 +28,7 @@ class DepositForm(forms.ModelForm):
 
     class Meta:
         model = Deposit
-        fields = ("coin", "package", "company_wallet_address", "amount", "proof")
+        fields = ("coin", "package", "company_wallet_address", "amount",)
 
     def __init__(self, *args, **kwargs):
         super(DepositForm, self).__init__(*args, **kwargs)
@@ -37,7 +37,7 @@ class DepositForm(forms.ModelForm):
         self.fields["coin"].widget.attrs.update({"class": "block w-full border border-blue-400 py-4 px-4 mt-3 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30"})
         self.fields["company_wallet_address"].widget.attrs.update({"class": "block w-full border border-blue-400 py-4 mt-3 px-4 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30"})
         self.fields["amount"].widget.attrs.update({"class": "block w-full border border-blue-400 py-4 mt-3 px-4 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30", "placeholder": "$1000"})
-        self.fields["proof"].widget.attrs.update({"class": "block bg-white w-full border border-blue-400 py-4 mt-3 px-4 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30"})
+        # self.fields["proof"].widget.attrs.update({"class": "block bg-white w-full border border-blue-400 py-4 mt-3 px-4 focus:border-blue-500 focus:ring-blue300 focus:ring focus:outline-none focus:ring-opacity-30"})
 
     def save(self, request):
         self.instance.user = request.user
@@ -45,5 +45,5 @@ class DepositForm(forms.ModelForm):
         self.package = self.cleaned_data['package']
         self.company_wallet_address = self.cleaned_data['company_wallet_address']
         self.amount = self.cleaned_data['amount']
-        self.proof = self.cleaned_data['proof']
+        # self.proof = self.cleaned_data['proof']
         super(DepositForm, self).save(request)

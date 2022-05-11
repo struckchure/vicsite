@@ -1,9 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from django.urls import reverse_lazy
+from django.http import request
 from django.views.generic import TemplateView
 # from django.http import request
-from accounts.models import Balance, DueDate, AmountInvested, CustomUser
+from accounts.models import Balance, DueDate, AmountInvested, CustomUser, Profilepic
+from transactions.models import Deposit
 
 class ChartView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy("login")
@@ -19,9 +21,11 @@ class DashboardHomeView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context = {
-            "wallet_bal": Balance.objects.filter(user=self.request.user),
-            "amount_invested": AmountInvested.objects.filter(user=self.request.user),
-            "duedate": DueDate.objects.filter(user=self.request.user),
+            "wallet_bal": Balance.objects.filter(user=self.request.user).first(),
+            "amount_invested": AmountInvested.objects.filter(user=self.request.user).first(),
+            "duedate": DueDate.objects.filter(user=self.request.user).first(),
+            "deposit_h": Deposit.objects.filter(user=self.request.user),
+            "pics": Profilepic.objects.filter(user=self.request.user)
         }
         return context
     

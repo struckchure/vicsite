@@ -1,7 +1,6 @@
 from pathlib import Path
 import os
 from decouple import config as cfg
-import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -19,10 +18,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = cfg("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = cfg("DEBUG", cast=bool, default=False)
+DEBUG = cfg("DEBUG", cast=bool, default=True)
 
-ALLOWED_HOSTS = ["backend.avaloqsassets.com"]
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["backend.avaloqsassets.com"]
+ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
 
 private_ip = get_linux_ec2_private_ip()
@@ -68,7 +67,7 @@ EMAIL_HOST = "server87.web-hosting.com"
 EMAIL_PORT = 465
 EMAIL_HOST_USER = cfg("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = cfg("EMAIL_HOST_PASSWORD")
-
+EMAIL_USE_TLS = True
 
 SITE_ID = 1
 
@@ -135,18 +134,18 @@ WSGI_APPLICATION = "site_server.wsgi.application"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": cfg("DB_NAME"),
-        "USER": cfg("DB_USERNAME"),
-        "PASSWORD": cfg("DB_PASSWORD"),
-        "HOST": cfg("DB_HOST"),
-        "PORT": cfg("DB_PORT"),
+    # 'default': {
+    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
+    #     "NAME": cfg("DB_NAME"),
+    #     "USER": cfg("DB_USERNAME"),
+    #     "PASSWORD": cfg("DB_PASSWORD"),
+    #     "HOST": cfg("DB_HOST"),
+    #     "PORT": cfg("DB_PORT"),
+    # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
-    #     "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
-    # }
 }
 
 
@@ -200,7 +199,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # django_heroku.settings(locals())
 
-CLOUDINARY_URL= cfg("CLOUDINARY_URL")
+cloudinary.config( 
+  cloud_name = cfg("cloud_name"), 
+  api_key = cfg("api_key"),
+  api_secret = cfg("api_secret"),
+  secure = True
+)
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'

@@ -14,14 +14,20 @@ from accounts.models import Coin, CoinAddress
 from accounts.models import CustomUser
 
 
-# class DepositView(CreateView):
+# class DepositView(LoginRequiredMixin, CreateView):
 #     """
 #     This class handles the deposit request form
 #     """
-
-#     model = Deposit
+#     login_url = reverse_lazy("login")
 #     form_class = DepositForm
+#     # model = Deposit
+#     # fields =  fields = ("coin", "package", "company_wallet_address", "amount", "proof",)
 #     template_name = "transactions/deposit.html"
+#     success_url = reverse_lazy("transactions")
+
+#     def form_valid(self, form):
+#         form.instance.user = self.request.user
+#         return super().form_invalid(form)
 
 @login_required(login_url="/accounts/login")
 def DepositView(request):
@@ -32,9 +38,10 @@ def DepositView(request):
         if form.is_valid():
             form.save(request)
             messages.success(request, message)
-            return HttpResponseRedirect(reverse_lazy("deposit"))
+            return HttpResponseRedirect(reverse_lazy("transactions"))
     else:
         form = DepositForm()
+        print("Form not valid")
     return render(request, "transactions/deposit.html", {"form": form})
 
 class TransactionHistoryView(LoginRequiredMixin, TemplateView):

@@ -3,8 +3,8 @@ from django.db import models
 from accounts.models import Balance
 
 INVEST_STATUS = (
-    ("A", "Active"),
-    ("N", "Unactive"),
+    ("Active", "Active"),
+    ("Inactive", "Unactive"),
 )
 
 class Package(models.Model):

@@ -85,7 +85,7 @@
                   <th class="w-32 p-3 text-sm font-medium text-left">Package</th>
                   <th class="w-48 p-3 text-sm font-medium text-left">Company_wallet_address</th>
                   <th class="w-32 p-3 text-sm font-medium text-left">Amount</th>
-                  <th class="w-32 p-3 text-sm font-medium text-left">Proof</th>
+                  {% comment %} <th class="w-32 p-3 text-sm font-medium text-left">Proof</th> {% endcomment %}
                   <th class="w-48 p-3 text-sm font-medium text-left whitespace-nowrap">Transaction Date</th>
                   <th class="w-20 p-3 text-sm font-medium text-left">Status</th>
                 </tr>
@@ -97,7 +97,7 @@
                   <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.package }}</td>
                   <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.company_wallet_address }}</td>
                   <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.amount }}</td>
-                  <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.proof }}</td>
+                  {% comment %} <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.proof }}</td> {% endcomment %}
                   <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ deposit_history.transaction_date }}</td>
                   <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                     <span class="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">{{ deposit_history.status }}</span>

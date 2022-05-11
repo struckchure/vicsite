@@ -13,7 +13,7 @@
     <p class="text-center pt-5 font-semibold">The following are list of investments</p>
 
     <!-- card wrapper  -->
-    <div class="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-10 mt-20 px-4">
+    <div class="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-10 mt-20 px-4" x-data="{ showForm: false }">
 
         {% for packages in package %}
         <div class="bg-white shadow-md flex justify-between flex-col h-64 items-center rounded-md py-10 sans-serif nunito">
@@ -27,11 +27,44 @@
             </div>
 
             <div>
-                <Button class="bg-[#6675FF] rounded-md py-1.5 px-4 font-medium text-white">Invest</Button>
+                <Button @click="showForm = !showForm" class="bg-[#6675FF] rounded-md py-1.5 px-4 font-medium text-white">Invest</Button>
             </div>
         </div>
         {% endfor %}
 
+        <div class="fixed w-full h-full top-0 left-0 flex items-center justify-center" x-cloak x-show="showForm">
+
+            <div class="w-full h-full bg-gray-500 opacity-40 fixed"></div>
+            <div class="relative bg-white p-8 mx-auto rounded-xl md:w-3/4 lg:w-3/6" @click.outside="showForm = false">
+                
+                <form method="POST" action="{% url 'invest' %}">
+                    {% csrf_token %}
+                    <div class="grid grid-cols-1 gap-6 font-medium">
+                        
+    
+    
+                        <div>
+                            <label class="text-gray-700" for="email">Package</label>
+                            <!-- <input type="email" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter email address"> -->
+                            {{ form.package }}
+                        </div>
+                        
+                        <div>
+                            <label class="text-gray-700" for="password">Amount</label>
+                            <!-- <input placeholder="Enter Password" type="password" class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2 focus:border-blue-400 focus:ring-blue-300 focus:ring focus:outline-none focus:ring-opacity-30" placeholder="Enter Password"> -->
+                            {{ form.amount }}
+                        </div>
+    
+                        
+                        <div class="grid pt-4 mt-2 justify-center">
+                            <button class="px-6 py-2 bg-gray-700 rounded-md text-white font-medium focus:outline-none focus:bg-gray-600 hover:bg-gray-600 w-full">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
 </div>
+<script src="{% static 'js/profile_edit.js' %}"></script>
 {% endblock content %}
