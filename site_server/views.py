@@ -28,7 +28,12 @@ class DashboardHomeView(LoginRequiredMixin, TemplateView):
             "pics": Profilepic.objects.filter(user=self.request.user)
         }
         return context
-    
+
+class HomePageView(TemplateView):
+    template_name = "front/home.html"
+
+class AboutPage(TemplateView):
+    template_name = "front/about.html"
  
 class Custom_PasswordResetView(PasswordResetView):
     template_name = "password/forgot_password.html"

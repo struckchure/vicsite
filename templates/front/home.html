@@ -1,0 +1,847 @@
+{% extends 'front/base.html' %}
+
+{% load static %}
+
+{% block title %}Home | Avaloqsassets{% endblock title %}
+
+{% block contents %}
+
+        <!-- Hero Section  -->
+        <div
+          class="flex flex-col justify-between max-w-xl px-4 mx-auto lg:pt-16 lg:flex-row md:px-8 lg:max-w-screen-xl"
+        >   
+                <!-- Section Starts Here  -->
+            <div class="pt-16 mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 grid justify-between">
+                   <!-- Start here  -->
+                <div class="max-w-xl mb-6 ">
+                <h2
+                    class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none"
+                >
+                    The quick, brown fox<br class="hidden md:block" />
+                    jumps over
+                    <span class="inline-block text-deep-purple-accent-400"
+                    >a lazy dog</span
+                    >
+                </h2>
+                <p class="text-base text-gray-700 md:text-lg">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                    accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                    quae. explicabo.
+                </p>
+                </div>
+                <!-- Ends Here  -->
+
+                <!-- Start Here  -->
+                <div class="flex items-center">
+                <a
+                    href="{% url 'login' %}"
+                    class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#6675FF] focus:shadow-outline focus:outline-none"
+                >
+                    Login
+                </a>
+                <a
+                    href="{% url 'signup' %}"
+                    aria-label=""
+                    class="inline-flex items-center font-semibold transition-colors duration-200 "
+                    >Sign up</a
+                >
+                </div>
+                <!-- Ends Here  -->
+
+                </div>
+                <!-- Section 1 Ends Here  -->
+            
+          <div>
+            <img
+              src="{% static 'img/sideIMG.png' %}"
+              class="object-cover object-top w-full h-64 mx-auto lg:h-auto xl:mr-24 md:max-w-sm"
+              alt=""
+            />
+          </div>
+
+        </div>
+
+      <!-- Our Offering Section  -->
+      <div>
+        <div
+          class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+        >
+          <div
+            class="grid row-gap-8 sm:row-gap-0 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            <div class="p-8 border-b sm:border-r">
+              <div class="max-w-md text-center">
+                <div
+                  class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-16 sm:h-16"
+                >
+                  <svg
+                    class="w-8 h-8 text-deep-purple-accent-400 sm:w-12 sm:h-12"
+                    stroke="currentColor"
+                    viewBox="0 0 52 52"
+                  >
+                    <polygon
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                      points="29 13 14 29 25 29 23 39 38 23 27 23"
+                    ></polygon>
+                  </svg>
+                </div>
+                <h6 class="mb-2 font-semibold leading-5">The quick fox</h6>
+                <p class="mb-3 text-sm text-gray-900">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium rem aperiam, eaque ipsa quae. Sit error
+                  voluptatem.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 border-b lg:border-r">
+              <div class="max-w-md text-center">
+                <div
+                  class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-16 sm:h-16"
+                >
+                  <svg
+                    class="w-8 h-8 text-deep-purple-accent-400 sm:w-12 sm:h-12"
+                    stroke="currentColor"
+                    viewBox="0 0 52 52"
+                  >
+                    <polygon
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                      points="29 13 14 29 25 29 23 39 38 23 27 23"
+                    ></polygon>
+                  </svg>
+                </div>
+                <h6 class="mb-2 font-semibold leading-5">Leverage agile</h6>
+                <p class="mb-3 text-sm text-gray-900">
+                  Storage shed, troughs feed bale manure, is garden wheat oats
+                  at augers. Bulls at rose garden cucumbers mice sunflower wheat
+                  in pig.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 border-b sm:border-r lg:border-r-0">
+              <div class="max-w-md text-center">
+                <div
+                  class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-16 sm:h-16"
+                >
+                  <svg
+                    class="w-8 h-8 text-deep-purple-accent-400 sm:w-12 sm:h-12"
+                    stroke="currentColor"
+                    viewBox="0 0 52 52"
+                  >
+                    <polygon
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                      points="29 13 14 29 25 29 23 39 38 23 27 23"
+                    ></polygon>
+                  </svg>
+                </div>
+                <h6 class="mb-2 font-semibold leading-5">Organically grow</h6>
+                <p class="mb-3 text-sm text-gray-900">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium rem aperiam, eaque ipsa quae. Sit error
+                  voluptatem.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 border-b lg:border-b-0 lg:border-r">
+              <div class="max-w-md text-center">
+                <div
+                  class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-16 sm:h-16"
+                >
+                  <svg
+                    class="w-8 h-8 text-deep-purple-accent-400 sm:w-12 sm:h-12"
+                    stroke="currentColor"
+                    viewBox="0 0 52 52"
+                  >
+                    <polygon
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                      points="29 13 14 29 25 29 23 39 38 23 27 23"
+                    ></polygon>
+                  </svg>
+                </div>
+                <h6 class="mb-2 font-semibold leading-5">Have a good one</h6>
+                <p class="mb-3 text-sm text-gray-900">
+                  Storage shed, troughs feed bale manure, is garden wheat oats
+                  at augers. Bulls at rose garden cucumbers mice sunflower wheat
+                  in pig.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 border-b sm:border-b-0 sm:border-r">
+              <div class="max-w-md text-center">
+                <div
+                  class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-16 sm:h-16"
+                >
+                  <svg
+                    class="w-8 h-8 text-deep-purple-accent-400 sm:w-12 sm:h-12"
+                    stroke="currentColor"
+                    viewBox="0 0 52 52"
+                  >
+                    <polygon
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                      points="29 13 14 29 25 29 23 39 38 23 27 23"
+                    ></polygon>
+                  </svg>
+                </div>
+                <h6 class="mb-2 font-semibold leading-5">Trough pomfret</h6>
+                <p class="mb-3 text-sm text-gray-900">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium rem aperiam, eaque ipsa quae. Sit error
+                  voluptatem.
+                </p>
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="max-w-md text-center">
+                <div
+                  class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-16 sm:h-16"
+                >
+                  <svg
+                    class="w-8 h-8 text-deep-purple-accent-400 sm:w-12 sm:h-12"
+                    stroke="currentColor"
+                    viewBox="0 0 52 52"
+                  >
+                    <polygon
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                      points="29 13 14 29 25 29 23 39 38 23 27 23"
+                    ></polygon>
+                  </svg>
+                </div>
+                <h6 class="mb-2 font-semibold leading-5">Disrupt inspire</h6>
+                <p class="mb-3 text-sm text-gray-900">
+                  Storage shed, troughs feed bale manure, is garden wheat oats
+                  at augers. Bulls at rose garden cucumbers mice sunflower wheat
+                  in pig.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Who we are section  -->
+      <div>
+        <div
+          class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+        >
+          <div
+            class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
+          >
+            <h2
+              class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto"
+            >
+              <span class="relative inline-block">
+                <svg
+                  viewBox="0 0 52 24"
+                  fill="currentColor"
+                  class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+                >
+                  <defs>
+                    <pattern
+                      id="bebc38d1-bf72-4c77-a073-f0fe5abe0753"
+                      x="0"
+                      y="0"
+                      width=".135"
+                      height=".30"
+                    >
+                      <circle cx="1" cy="1" r=".7"></circle>
+                    </pattern>
+                  </defs>
+                  <rect
+                    fill="url(#bebc38d1-bf72-4c77-a073-f0fe5abe0753)"
+                    width="52"
+                    height="24"
+                  ></rect>
+                </svg>
+                <span class="relative">The</span>
+              </span>
+              quick, brown fox jumps over a lazy dog
+            </h2>
+            <p class="text-base text-gray-700 md:text-lg">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque rem aperiam, eaque ipsa quae.
+            </p>
+          </div>
+          <div class="grid gap-8 row-gap-12 lg:grid-cols-2">
+            <div class="max-w-md sm:mx-auto sm:text-center">
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24"
+              >
+                <svg
+                  class="w-12 h-12 text-deep-purple-accent-400 sm:w-20 sm:h-20"
+                  stroke="currentColor"
+                  viewBox="0 0 52 52"
+                >
+                  <polygon
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                    points="29 13 14 29 25 29 23 39 38 23 27 23"
+                  ></polygon>
+                </svg>
+              </div>
+              <h6 class="mb-3 text-xl font-bold leading-5">A business big</h6>
+              <p class="mb-3 text-sm text-gray-900">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium rem aperiam, eaque ipsa quae. Sed ut perspiciatis
+                unde omnis iste natus error sit voluptatem accusantium
+                doloremque rem aperiam, eaque ipsa quae.
+              </p>
+              <a
+                href="/"
+                aria-label=""
+                class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                >Learn more</a
+              >
+            </div>
+            <div class="max-w-md sm:mx-auto sm:text-center">
+              <div
+                class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24"
+              >
+                <svg
+                  class="w-12 h-12 text-deep-purple-accent-400 sm:w-20 sm:h-20"
+                  stroke="currentColor"
+                  viewBox="0 0 52 52"
+                >
+                  <polygon
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    fill="none"
+                    points="29 13 14 29 25 29 23 39 38 23 27 23"
+                  ></polygon>
+                </svg>
+              </div>
+              <h6 class="mb-3 text-xl font-bold leading-5">The quick dog</h6>
+              <p class="mb-3 text-sm text-gray-900">
+                Yolo ipsum dolor sit amet, consectetur adipiscing elit. Ut ac
+                suscipit leo. Carpe diem vulputate est nec commodo rutrum.
+                Pellentesque mattis convallis nisi eu and I ain’t stoppin until
+                the swear jar’s full.
+              </p>
+              <a
+                href="/"
+                aria-label=""
+                class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                >Learn more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to Invest  -->
+      <div>
+        <div
+          class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+        >
+        <div>
+            <h2 class="grid items-center justify-center font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto pb-10">Our talented team of professionals</h2>
+        </div>
+          <div class="grid gap-6 row-gap-10 lg:grid-cols-2">
+            <div class="lg:py-6 lg:pr-16">
+              <div class="flex">
+                <div class="flex flex-col items-center mr-4">
+                  <div>
+                    <div
+                      class="flex items-center justify-center w-10 h-10 border rounded-full"
+                    >
+                      <svg
+                        class="w-4 text-gray-600"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        viewBox="0 0 24 24"
+                      >
+                        <line
+                          fill="none"
+                          stroke-miterlimit="10"
+                          x1="12"
+                          y1="2"
+                          x2="12"
+                          y2="22"
+                        ></line>
+                        <polyline
+                          fill="none"
+                          stroke-miterlimit="10"
+                          points="19,15 12,22 5,15"
+                        ></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="w-px h-full bg-gray-300"></div>
+                </div>
+                <div class="pt-1 pb-8">
+                  <p class="mb-2 text-lg font-bold">Step 1</p>
+                  <p class="text-gray-700">
+                    All recipes are written using certain conventions, which
+                    define the characteristics of common ingredients. The rules
+                    vary from place to place.
+                  </p>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex flex-col items-center mr-4">
+                  <div>
+                    <div
+                      class="flex items-center justify-center w-10 h-10 border rounded-full"
+                    >
+                      <svg
+                        class="w-4 text-gray-600"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        viewBox="0 0 24 24"
+                      >
+                        <line
+                          fill="none"
+                          stroke-miterlimit="10"
+                          x1="12"
+                          y1="2"
+                          x2="12"
+                          y2="22"
+                        ></line>
+                        <polyline
+                          fill="none"
+                          stroke-miterlimit="10"
+                          points="19,15 12,22 5,15"
+                        ></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="w-px h-full bg-gray-300"></div>
+                </div>
+                <div class="pt-1 pb-8">
+                  <p class="mb-2 text-lg font-bold">Step 2</p>
+                  <p class="text-gray-700">
+                    The first mate and his Skipper too will do their very best
+                    to make the others comfortable in their tropic island nest.
+                    Michael Knight a young loner.
+                  </p>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex flex-col items-center mr-4">
+                  <div>
+                    <div
+                      class="flex items-center justify-center w-10 h-10 border rounded-full"
+                    >
+                      <svg
+                        class="w-4 text-gray-600"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        viewBox="0 0 24 24"
+                      >
+                        <line
+                          fill="none"
+                          stroke-miterlimit="10"
+                          x1="12"
+                          y1="2"
+                          x2="12"
+                          y2="22"
+                        ></line>
+                        <polyline
+                          fill="none"
+                          stroke-miterlimit="10"
+                          points="19,15 12,22 5,15"
+                        ></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="w-px h-full bg-gray-300"></div>
+                </div>
+                <div class="pt-1 pb-8">
+                  <p class="mb-2 text-lg font-bold">Step 3</p>
+                  <p class="text-gray-700">
+                    Tell them I hate them. Is the Space Pope reptilian!? Tell
+                    her she looks thin. Hello, little man. I will destroy you!
+                  </p>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex flex-col items-center mr-4">
+                  <div>
+                    <div
+                      class="flex items-center justify-center w-10 h-10 border rounded-full"
+                    >
+                      <svg
+                        class="w-4 text-gray-600"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        viewBox="0 0 24 24"
+                      >
+                        <line
+                          fill="none"
+                          stroke-miterlimit="10"
+                          x1="12"
+                          y1="2"
+                          x2="12"
+                          y2="22"
+                        ></line>
+                        <polyline
+                          fill="none"
+                          stroke-miterlimit="10"
+                          points="19,15 12,22 5,15"
+                        ></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="w-px h-full bg-gray-300"></div>
+                </div>
+                <div class="pt-1 pb-8">
+                  <p class="mb-2 text-lg font-bold">Step 4</p>
+                  <p class="text-gray-700">
+                    If one examines precultural libertarianism, one is faced
+                    with a choice: either accept rationalism or conclude that
+                    context is a product.
+                  </p>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex flex-col items-center mr-4">
+                  <div>
+                    <div
+                      class="flex items-center justify-center w-10 h-10 border rounded-full"
+                    >
+                      <svg
+                        class="w-6 text-gray-600"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <polyline
+                          fill="none"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-miterlimit="10"
+                          points="6,12 10,16 18,8"
+                        ></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-1">
+                  <p class="mb-2 text-lg font-bold">Success</p>
+                  <p class="text-gray-700"></p>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <img
+                class="inset-0 object-cover object-bottom w-full rounded shadow-lg h-96 lg:absolute lg:h-full"
+                src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Crypto Price Marquee -->
+      <div>
+        <div
+        class="livecoinwatch-widget-5"
+        lcw-base="USD"
+        lcw-color-tx="#999999"
+        lcw-marquee-1="coins"
+        lcw-marquee-2="movers"
+        lcw-marquee-items="20"
+      ></div>
+
+      </div>
+
+      <!-- List of Investment -->
+      <div>
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+              <div>
+                <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                  Brand new
+                </p>
+              </div>
+              <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">Choose your way. Advance everyday.</h2>
+              <p class="text-base text-gray-700 md:text-lg">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.
+              </p>
+            </div>
+            <div class="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto">
+              
+
+              <div class="shadow-md bg-white flex flex-col justify-between h-64 py-10 items-center rounded-md">
+
+                <h1 class="font-medium text-[#6675FF]">Silver</h1>
+                <div class="text-center font-semibold">
+                    <p>Maximum Deposit $4999</p>
+                    <p>Minimum Deposit $500</p>
+                    <p>10% ROI</p>
+                </div>
+
+                <div>
+                    <Button class="bg-[#6675FF] rounded-md py-1.5 px-4 font-medium text-white">Invest</Button>
+                </div>
+              </div>
+              <div class="shadow-md bg-white flex flex-col justify-between h-64 py-10 items-center rounded-md">
+
+                <h1 class="font-medium text-[#6675FF]">Silver</h1>
+                <div class="text-center font-semibold">
+                    <p>Maximum Deposit $4999</p>
+                    <p>Minimum Deposit $500</p>
+                    <p>10% ROI</p>
+                </div>
+
+                <div>
+                    <Button class="bg-[#6675FF] rounded-md py-1.5 px-4 font-medium text-white">Invest</Button>
+                </div>
+              </div>
+              <div class="shadow-md bg-white flex flex-col justify-between h-64 py-10 items-center rounded-md">
+
+                <h1 class="font-medium text-[#6675FF]">Silver</h1>
+                <div class="text-center font-semibold">
+                    <p>Maximum Deposit $4999</p>
+                    <p>Minimum Deposit $500</p>
+                    <p>10% ROI</p>
+                </div>
+
+                <div>
+                    <Button class="bg-[#6675FF] rounded-md py-1.5 px-4 font-medium text-white">Invest</Button>
+                </div>
+              </div>
+              <div class="shadow-md bg-white flex flex-col justify-between h-64 py-10 items-center rounded-md">
+
+                <h1 class="font-medium text-[#6675FF]">Silver</h1>
+                <div class="text-center font-semibold">
+                    <p>Maximum Deposit $4999</p>
+                    <p>Minimum Deposit $500</p>
+                    <p>10% ROI</p>
+                </div>
+
+                <div>
+                    <Button class="bg-[#6675FF] rounded-md py-1.5 px-4 font-medium text-white">Invest</Button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+      </div>
+
+      <!-- Our Investment  -->
+      <div>
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="mx-auto mb-10 lg:max-w-xl sm:text-center">
+              <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                Discover Our Team
+              </p>
+              <h2 class="font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl">Our talented team of professionals</h2>
+              <p class="text-base text-gray-700 md:text-lg">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+              </p>
+
+            </div>
+            <div class="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">
+              <div>
+                <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
+                  <img class="absolute object-cover w-full h-full rounded" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260" alt="Person" />
+                </div>
+                <div class="flex flex-col sm:text-center">
+                  <p class="text-lg font-bold">Oliver Aguilerra</p>
+                  <p class="mb-5 text-xs text-gray-800">Product Manager</p>
+                  <div class="flex items-center space-x-3 sm:justify-center">
+                    <a href="/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a href="/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
+                  <img class="absolute object-cover w-full h-full rounded" src="https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="Person" />
+                </div>
+                <div class="flex flex-col sm:text-center">
+                  <p class="text-lg font-bold">Marta Clermont</p>
+                  <p class="mb-5 text-xs text-gray-800">Design Team Lead</p>
+                  <div class="flex items-center space-x-3 sm:justify-center">
+                    <a href="/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a href="/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
+                  <img class="absolute object-cover w-full h-full rounded" src="https://images.pexels.com/photos/3747435/pexels-photo-3747435.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="Person" />
+                </div>
+                <div class="flex flex-col sm:text-center">
+                  <p class="text-lg font-bold">Alice Melbourne</p>
+                  <p class="mb-5 text-xs text-gray-800">Human Resources</p>
+                  <div class="flex items-center space-x-3 sm:justify-center">
+                    <a href="/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a href="/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="relative pb-56 mb-4 rounded shadow lg:pb-64">
+                  <img class="absolute object-cover w-full h-full rounded" src="https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="Person" />
+                </div>
+                <div class="flex flex-col sm:text-center">
+                  <p class="text-lg font-bold">John Doe</p>
+                  <p class="mb-5 text-xs text-gray-800">Good guy</p>
+                  <div class="flex items-center space-x-3 sm:justify-center">
+                    <a href="/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a href="/" class="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                        <path
+                          d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Blog  -->
+      <div>
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="pb-10 grid items-center justify-center">
+                <h2 class="font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl">Latest News</h2>
+            </div>
+
+            <div class="mb-10 border-t border-b divide-y">
+              <div class="grid py-8 sm:grid-cols-4">
+                <div class="mb-4 sm:mb-0">
+                  <div class="space-y-1 text-xs font-semibold tracking-wide uppercase">
+                    <a href="/" class="transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800" aria-label="Category">Books</a>
+                    <p class="text-gray-600">5 Jan 2020</p>
+                  </div>
+                </div>
+                <div class="sm:col-span-3 lg:col-span-2">
+                  <div class="mb-3">
+                    <a href="/" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-700">
+                      <p class="text-3xl font-extrabold leading-none sm:text-4xl xl:text-4xl">
+                        Tell them I hate them
+                      </p>
+                    </a>
+                  </div>
+                  <p class="text-gray-700">
+                    Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows.
+                  </p>
+                </div>
+              </div>
+              <div class="grid py-8 sm:grid-cols-4">
+                <div class="mb-4 sm:mb-0">
+                  <div class="space-y-1 text-xs font-semibold tracking-wide uppercase">
+                    <a href="/" class="transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800" aria-label="Category">Inspiration</a>
+                    <p class="text-gray-600">15 Sep 2020</p>
+                  </div>
+                </div>
+                <div class="sm:col-span-3 lg:col-span-2">
+                  <div class="mb-3">
+                    <a href="/" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-700">
+                      <p class="text-3xl font-extrabold leading-none sm:text-4xl xl:text-4xl">
+                        A flower in my green garden
+                      </p>
+                    </a>
+                  </div>
+                  <p class="text-gray-700">
+                    Chase ball of string eat plants, meow, and throw up because I ate plants going to catch the red dot today going.
+                  </p>
+                </div>
+              </div>
+              <div class="grid py-8 sm:grid-cols-4">
+                <div class="mb-4 sm:mb-0">
+                  <div class="space-y-1 text-xs font-semibold tracking-wide uppercase">
+                    <a href="/" class="transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800" aria-label="Category">Detective</a>
+                    <p class="text-gray-600">28 Dec 2020</p>
+                  </div>
+                </div>
+                <div class="sm:col-span-3 lg:col-span-2">
+                  <div class="mb-3">
+                    <a href="/" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-700">
+                      <p class="text-3xl font-extrabold leading-none sm:text-4xl xl:text-4xl">
+                        We never had the love we deserve
+                      </p>
+                    </a>
+                  </div>
+                  <p class="text-gray-700">
+                    Sportacus andrew weatherall goose Refined gentlemen super mario des lynam alpha trion zap.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
+                See all articles
+                <svg class="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12">
+                  <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+      </div>
+{% endblock contents %}
