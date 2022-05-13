@@ -4,7 +4,7 @@ from decouple import config as cfg
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-from site_server.ec2_check import get_linux_ec2_private_ip
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,9 +24,6 @@ DEBUG = cfg("DEBUG", cast=bool, default=True)
 ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ["vicsites.herokuapp.com"]
 
-private_ip = get_linux_ec2_private_ip()
-if private_ip:
-    ALLOWED_HOSTS.append(private_ip)
 
 # Application definition
 

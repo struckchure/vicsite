@@ -27,7 +27,6 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("invest/", include("investments.urls")),
     path("transactions/", include("transactions.urls")),
-    path("contents/", include("contents.urls")),
     path("dashboard/", DashboardHomeView.as_view(), name="home"),
     path("dashboard/charts/", ChartView.as_view(), name="charts"),
     path("aboutus", AboutPage.as_view(), name="about_us"),

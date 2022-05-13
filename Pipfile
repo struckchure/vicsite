@@ -18,6 +18,7 @@ django-richtextfield = "*"
 django-ckeditor = "*"
 python-decouple = "*"
 djangorestframework = "*"
+requests = "*"
 
 [dev-packages]
 

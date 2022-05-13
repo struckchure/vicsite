@@ -84,15 +84,8 @@
         </h2>
       </div>
       <div class="grid grid-cols-1 gap-6 font-medium">
-        <form action="">
-          <div>
-            <label class="text-gray-700" for="name">Name</label>
-            <input
-              class="block w-full border border-gray-200 rounded-md py-2 px-4 mt-2"
-              type="text"
-              placeholder="Enter your name here"
-            />
-          </div>
+        <form method="POST" action="{% url 'about_us' %}">
+          
           <div>
             <label class="text-gray-700" for="email">Email</label>
             <input
@@ -101,6 +94,7 @@
               type="email"
               placeholder="Enter your email address here"
             />
+            {{ form.c_email }}
           </div>
           <div>
             <label class="text-gray-700" for="message">Message</label>
@@ -112,6 +106,7 @@
               cols="30"
               rows="10"
             ></textarea>
+            {{ form.msg }}
           </div>
 
           <div class="grid items-center justify-center mt-5">
@@ -309,4 +304,8 @@
     </div>
   </div>
 </div>
+
+<script>
+
+</script>
 {% endblock contents %}
