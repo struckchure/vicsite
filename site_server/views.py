@@ -2,10 +2,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from django.urls import reverse_lazy
 from django.http import request
-from django.views.generic import TemplateView
-# from django.http import request
+from django.shortcuts import render
+from django.views.generic import TemplateView, FormView
+from django.http import request
 from accounts.models import Balance, DueDate, AmountInvested, CustomUser, Profilepic
-from transactions.models import Deposit
+from transactions.models import Deposit, Package
+from contents.models import Carousel_Home, Carousel_About, Who_we_are, Who_we_are_sub, Top_executive, Top_executive_body, Our_offering, AboutUs, Footer, HowToInvest
 
 class ChartView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy("login")
@@ -32,8 +34,35 @@ class DashboardHomeView(LoginRequiredMixin, TemplateView):
 class HomePageView(TemplateView):
     template_name = "front/home.html"
 
-class AboutPage(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # context["carousel_home"] = Carousel_Home.objects.all()
+        context = {
+            "package": Package.objects.all(),
+            "HTI": HowToInvest.objects.all(),
+            "aboutus": AboutUs.objects.all(),
+            "our_offering": Our_offering.objects.all(),
+            "who_we_are": Who_we_are(),
+            "carousel_home": Carousel_Home.objects.all(),
+        }
+        return context
+
+class AboutPage(FormView):
     template_name = "front/about.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # context["carousel_home"] = Carousel_Home.objects.all()
+        context = {
+            "package": Package.objects.all(),
+            "HTI": HowToInvest.objects.all(),
+            "aboutus": AboutUs.objects.all(),
+            "our_offering": Our_offering.objects.all(),
+            "who_we_are": Who_we_are(),
+            "carousel_home": Carousel_Home.objects.all(),
+        }
+        return context
+    
  
 class Custom_PasswordResetView(PasswordResetView):
     template_name = "password/forgot_password.html"

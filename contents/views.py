@@ -1,3 +1,4 @@
+# from django.views.generics import 
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from contents.models import (

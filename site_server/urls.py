@@ -29,7 +29,7 @@ urlpatterns = [
     path("contents/", include("contents.urls")),
     path("dashboard/", DashboardHomeView.as_view(), name="home"),
     path("dashboard/charts/", ChartView.as_view(), name="charts"),
-    path("aboutus", AboutPage.as_view(), name="about_us"),
+    path("aboutus", AboutPage, name="about_us"),
     path("", HomePageView.as_view(), name="homepage")
 ]
 
