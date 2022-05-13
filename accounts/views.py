@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.http import request, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, CreateView, UpdateView
-from accounts.models import Contact, Balance, Profilepic, CustomUser
+from accounts.models import Balance, Profilepic, CustomUser
 from accounts.forms import CustomLoginForm, CustomSignupForm
 
 
@@ -95,7 +95,4 @@ class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
 #     return render(request, "accounts/profile_edit.html", {"pics": form})
 
 
-class ContactView(CreateView):
-    ''' Contact us Form '''
-    model = Contact
-    fields = "__all__"
+

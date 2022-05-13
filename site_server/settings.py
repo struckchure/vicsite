@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "transactions.apps.TransactionsConfig",
     "investments.apps.InvestmentsConfig",
     "contents.apps.ContentsConfig",
+    "fronts.apps.FrontsConfig",
 ]
 
 AUTH_USER_MODEL = "accounts.CustomUser"
