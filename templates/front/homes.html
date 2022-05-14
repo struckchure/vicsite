@@ -14,14 +14,16 @@
             <div class="pt-16 mb-16 lg:mb-0 lg:max-w-lg lg:pr-5 grid justify-between">
                    <!-- Start here  -->
                 <div class="max-w-xl mb-6 ">
-                <h2
+                  {% for carousel_homes in carousel_home %}
+                <h1
                     class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none"
                 >
-                    {{ carousel_home.heading_one }}
-                </h2>
+                    {{ carousel_homes.heading_one|safe }}
+                </h1>
                 <p class="text-base text-gray-700 md:text-lg">
-                    {{ carousel_home.heading_two }}
+                    {{ carousel_homes.heading_two|safe }}
                 </p>
+                {% endfor %}
                 </div>
                 <!-- Ends Here  -->
 
@@ -142,6 +144,7 @@
           </div>
           
           <div class="grid gap-8 row-gap-12 lg:grid-cols-2">
+            {% for wwe in who_we_are %}
             <div class="max-w-md sm:mx-auto sm:text-center">
               <div
                 class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24"
@@ -160,9 +163,9 @@
                   ></polygon>
                 </svg>
               </div>
-              <h6 class="mb-3 text-xl font-bold leading-5">{{ wwe.title }}</h6>
+              <h6 class="mb-3 text-xl font-bold leading-5">{{ wwe.title|safe }}</h6>
               <p class="mb-3 text-sm text-gray-900">
-                {{ wwe.msg }}
+                {{ wwe.msg|safe }}
               </p>
               <a
                 href="/"
@@ -171,6 +174,7 @@
                 >Learn more</a
               >
             </div>
+            {% endfor %}
             
           </div>
         </div>
@@ -185,9 +189,10 @@
             <h2 class="grid items-center justify-center font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto pb-10">How to Invest</h2>
         </div>
           <div class="grid gap-6 row-gap-10 lg:grid-cols-2">
-            <div class="lg:py-6 lg:pr-16">
+            <div class="lg:py-6 lg:pr-16 grid justify-between">
              
-              {% for hti in how_to_invest %}
+              {% for hti in HTI %}
+              
               <div class="flex">
                 <div class="flex flex-col items-center mr-4">
                   <div>
@@ -221,13 +226,42 @@
                   <div class="w-px h-full bg-gray-300"></div>
                 </div>
                 <div class="pt-1 pb-8">
-                  <p class="mb-2 text-lg font-bold">{{ hti.title_one }}</p>
+                  <p class="mb-2 text-lg font-bold">{{ hti.title_one|safe }}</p>
                   <p class="text-gray-700">
-                    {{ hti.content_one }}
+                    {{ hti.content_one|safe }}
                   </p>
                 </div>
               </div>
               {% endfor %}
+
+              <div class="flex">
+                <div class="flex flex-col items-center mr-4">
+                  <div>
+                    <div
+                      class="flex items-center justify-center w-10 h-10 border rounded-full"
+                    >
+                      <svg
+                        class="w-6 text-gray-600"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <polyline
+                          fill="none"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-miterlimit="10"
+                          points="6,12 10,16 18,8"
+                        ></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-1">
+                  <p class="mb-2 text-lg font-bold">Success</p>
+                  <p class="text-gray-700"></p>
+                </div>
+              </div>
 
             </div>
             <div class="relative">
@@ -358,7 +392,7 @@
       </div>
 
       <!-- Blog  -->
-      <div>
+      <!-- <div>
         <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div class="pb-10 grid items-center justify-center">
                 <h2 class="font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl">Latest News</h2>
@@ -386,7 +420,7 @@
                   </p>
                 </div>
               </div>
-              
+              {% endfor %}
               
             </div>
             <div class="text-center">
@@ -398,5 +432,5 @@
               </a>
             </div>
           </div>
-      </div>
+      </div> -->
 {% endblock contents %}

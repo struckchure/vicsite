@@ -2,13 +2,11 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path, include, reverse_lazy
-from rest_framework.documentation import include_docs_urls
-from rest_framework.schemas import get_schema_view # new
+
 from site_server.views import ChartView, DashboardHomeView, Custom_PasswordResetCompleteView, Custom_PasswordResetConfirmView, Custom_PasswordResetDoneView, Custom_PasswordResetView
 from fronts.views import AboutPage, HomePageView
 from accounts.views import SignupView, CustomLoginView
 
-schema_view = get_schema_view(title='Blog API') 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
