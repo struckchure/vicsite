@@ -42,7 +42,10 @@ def DepositView(request):
     else:
         form = DepositForm()
         print("Form not valid")
-    return render(request, "transactions/deposit.html", {"form": form})
+    return render(request, "transactions/deposit.html", {
+        "form": form,
+        "detail": CoinAddress.objects.all()
+    })
 
 class TransactionHistoryView(LoginRequiredMixin, TemplateView):
     """

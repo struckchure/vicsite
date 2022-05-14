@@ -7,7 +7,7 @@
 {% block pagetitle %}Deposit{% endblock pagetitle %}
 
 {% block content %}
-<div class="rounded-xl h-[80vh] font-medium bg-slate-50/100">
+<div class="rounded-xl h-[auto] font-medium bg-slate-50/100">
     <section class="p-20">
         <form method="POST" action="{% url 'deposit' %}">
             {% csrf_token %}
@@ -66,6 +66,51 @@
             </div>
         </form>
     </section>
+
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 p-20">
+        <!-- Wallet Address  -->
+        <div class="text-gray-700">
+            <h1 class="text-2xl pb-6">List of Wallet Address</h1>
+            <p>Kindly click on any Coin of your choice and copy the wallet address to continue your transaction</p>
+        </div>
+        <div class="space-y-4">
+            {% for details in detail %}
+            <div
+              x-data="{ activeAccordion: false, maxHeight: 0 }"
+              x-init="maxHeight = `${$refs.accordionContent.scrollHeight}px`"
+              class="overflow-hidden"
+            >
+              <button
+                @click="activeAccordion = !activeAccordion"
+                class="flex items-center justify-between w-full p-6 text-white bg-[#6675FF] shadow-sm rounded-lg"
+              >
+                <h2 class="font-semibold">{{ details.coin }}<h2>
+          
+                <span
+                  :class="{ '-rotate-180': activeAccordion }"
+                  class="transition"
+                  aria-hidden="true"
+                >
+                  👇
+                </span>
+              </button>
+          
+              <div
+                x-ref="accordionContent"
+                :class="{ 'mt-4': activeAccordion }"
+                :style="activeAccordion && { 'max-height': maxHeight }"
+                class="transition-all max-h-0"
+              >
+                <p class="bg-gray-200 p-6 font-normal">
+                  {{ details.coin_wallet_address }}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          
+          </div>
+        
+    </div>
 </div>
 
 {% endblock content %}
