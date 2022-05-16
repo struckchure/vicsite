@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/public_html/main_app/vicsite/
+    - /bin/cp -R vicsite $DEPLOYPATH
