@@ -61,8 +61,8 @@ ACCOUNT_UNIQUE_EMAIL = True
 # EMAIL CONFIG
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "server87.web-hosting.com"
-EMAIL_PORT = 465
+EMAIL_HOST = "smtp-pulse.com"
+EMAIL_PORT = 587
 EMAIL_HOST_USER = cfg("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = cfg("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
