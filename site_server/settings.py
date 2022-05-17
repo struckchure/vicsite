@@ -4,11 +4,11 @@ from decouple import config as cfg
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-from site_server.ec2_check import get_linux_ec2_private_ip
+# from site_server.ec2_check import get_linux_ec2_private_ip
 
-private_ip = get_linux_ec2_private_ip()
-if private_ip:
-    ALLOWED_HOSTS.append(private_ip)
+# private_ip = get_linux_ec2_private_ip()
+# if private_ip:
+#     ALLOWED_HOSTS.append(private_ip)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

@@ -19,7 +19,6 @@ django-ckeditor = "*"
 python-decouple = "*"
 requests = "*"
 psycopg2-binary = "*"
-psycopg2 = "*"
 
 [dev-packages]
 
