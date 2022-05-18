@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:14.1-alpine
+    volumes:
+      - .docker/db:/var/run/postgresql/data
+    env_file:
+      - .env
+
+  api:
+    build:
+      context: .
+      dockerfile: ${PWD}/.docker/django/Dockerfile
+    volumes:
+      - .:/home/vicsite/app/
+    env_file:
+      - .env
+    command: gunicorn site_server.wsgi --log-file -
+    depends_on:
+      - db
+    ports:
+      - 80:80
+
+volumes:
+  postgres_data:
+
+    # networks:
+    #   default:
+    #     external:
+    #       name: nginx-proxy
