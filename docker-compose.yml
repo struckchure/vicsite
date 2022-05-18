@@ -16,16 +16,17 @@ services:
       - .:/home/vicsite/app/
     env_file:
       - .env
-    command: gunicorn site_server.wsgi --log-file -
+    command: python manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
     ports:
-      - 80:80
+      - 8000:8000
 
 volumes:
   postgres_data:
 
-    # networks:
-    #   default:
-    #     external:
-    #       name: nginx-proxy
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
