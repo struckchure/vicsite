@@ -19,9 +19,28 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     depends_on:
       - db
+    restart: always
     ports:
       - 8000:8000
+
+  nginx:
+    image: nginx:1.15-alpine
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - .docker/nginx:/etc/nginx/conf.d/:ro
+      - .docker/certbot/www:/var/www/certbot/:ro
+    env_file:
+      - .env
+    depends_on:
+      - api
     restart: always
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - .docker/certbot/www/:/var/www/certbot/:ro
 
 volumes:
   postgres_data:
